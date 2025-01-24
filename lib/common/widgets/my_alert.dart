@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MyAlert extends StatefulWidget {
@@ -7,9 +8,11 @@ class MyAlert extends StatefulWidget {
   const MyAlert({
     super.key,
     this.child,
+    required this.webBodyMaxWidth,
   });
 
   final Widget? child;
+  final double webBodyMaxWidth;
 
   static void showLoading() {
     globalKey.currentState?.showLoading();
@@ -144,7 +147,7 @@ class _MyAlertState extends State<MyAlert> with TickerProviderStateMixin {
 
     final block = _isShowBlock ? Container(color: Colors.black.withValues(alpha: 0.1)) : const SizedBox();
 
-    return Stack(
+    final body = Stack(
       children: [
         widget.child ?? const SizedBox(),
         loading,
@@ -152,6 +155,20 @@ class _MyAlertState extends State<MyAlert> with TickerProviderStateMixin {
         ..._snacks,
       ],
     );
+
+    final webBody = Container(
+      color: Colors.black,
+      child: Center(
+        child: Container(
+          constraints: BoxConstraints(maxWidth: widget.webBodyMaxWidth),
+          // width: 430 * screenHeight / 932,
+          // height: screenHeight,
+          child: body,
+        ),
+      ),
+    );
+
+    return kIsWeb ? webBody : body;
   }
 }
 
@@ -173,7 +190,7 @@ class _SnackBarWidget extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
     // final keyboardHeight = MediaQueryData.fromView(View.of(context)).viewInsets.bottom;
     // final bottomHeight = MediaQuery.of(context).viewInsets.bottom;
-    final snackbarHeight = screenHeight - kToolbarHeight - kToolbarHeight;
+    final snackBarHeight = screenHeight - kToolbarHeight - kToolbarHeight;
 
     return AnimatedBuilder(
       animation: snackAnimationController,
@@ -187,7 +204,7 @@ class _SnackBarWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(maxHeight: snackbarHeight),
+                  constraints: BoxConstraints(maxHeight: snackBarHeight),
                   child: IntrinsicHeight(
                     child: Center(
                       child: Material(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:king_game/common/common.dart';
+
 Future<void> initialized() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -10,6 +11,8 @@ Future<void> initialized() async {
     initTheme();
     // 初始化语言
     initLang();
+    // 配置dio
+    setMyDio(baseUrl: MyConfig.urls.apiBaseUrl);
   });
 
   // 导入用户控制器

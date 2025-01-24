@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
 
 
       // 顶层弹窗
-      builder: (context, child) => MyAlert(key: MyAlert.globalKey, child: child),
+      builder: (context, child) => MyAlert(key: MyAlert.globalKey, webBodyMaxWidth: MyConfig.app.webBodyMaxWidth, child: child),
     );
   }
 }

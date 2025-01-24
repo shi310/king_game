@@ -1,6 +1,6 @@
 part 'base.dart';
 
-class ApiPath {
+class MyApi {
   static final base = _Base();
 }
 
