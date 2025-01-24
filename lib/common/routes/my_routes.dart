@@ -5,4 +5,6 @@ class MyRoutes {
   static const unknownView = '/unknown_view';
   // welcome
   static const loginView = '/login_view';
+  // application
+  static const applicationView = '/application_view';
 }

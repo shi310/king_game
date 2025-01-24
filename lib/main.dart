@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       // logWriterCallback: MyLogger.write,
 
       // 默认页面切换动画
-      defaultTransition: Transition.rightToLeftWithFade,
+      defaultTransition: kIsWeb ? Transition.fadeIn : Transition.rightToLeftWithFade,
       transitionDuration: const Duration(milliseconds: 300),
 
       // 路由

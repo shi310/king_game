@@ -6,5 +6,11 @@ const Map<String, String> en = {
   Lang.loginViewEmail: '验证码',
   Lang.loginViewFacebook: 'Facebook',
   Lang.loginViewGoogle: 'Google',
-  Lang.loginViewGuest: '游客登录'
+  Lang.loginViewGuest: '游客登录',
+  Lang.loginViewSignInForAccount: '登陆',
+  Lang.loginViewSendCode: '发送',
+
+  Lang.footerMine: '我的',
+  Lang.footerStore: '商城',
+  Lang.footerGames: '游戏',
 };

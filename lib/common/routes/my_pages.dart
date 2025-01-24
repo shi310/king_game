@@ -27,5 +27,12 @@ class MyPages {
       page: () => const LoginView(),
       binding: LoginBinding(),
     ),
+
+    // Application 主页面
+    GetPage(
+      name: MyRoutes.applicationView,
+      page: () => const ApplicationView(),
+      binding: ApplicationBinding(),
+    ),
   ];
 }

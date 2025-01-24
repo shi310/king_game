@@ -54,7 +54,7 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
               ),
-              child: Text('发送', style: TextStyle(color: Color(0XFF397DEA))),
+              child: Text(Lang.loginViewSendCode.tr, style: TextStyle(color: Color(0XFF397DEA))),
             ),
             ),
           ),
@@ -127,11 +127,12 @@ class LoginView extends GetView<LoginController> {
           ),
         ),
       ),
-      SafeArea(child: Scaffold(
+      Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         appBar: AppBar(backgroundColor: Colors.black.withAlpha(0),),
         body: body,
-      )),
+      ),
     ]);
   }
 
@@ -245,7 +246,7 @@ class LoginView extends GetView<LoginController> {
           // child: textField,
         ),
         Positioned.fill(child: Center(child: MyStrokeText(
-          text: '登录',
+          text: Lang.loginViewSignInForAccount.tr,
           fontSize: 20,
           fontFamily: 'Sans',
           fontWeight: FontWeight.w800,
@@ -260,11 +261,7 @@ class LoginView extends GetView<LoginController> {
       ],),),
     );
 
-    return TextButton(onPressed: onPressed, style: ButtonStyle(
-      padding: WidgetStateProperty.all(EdgeInsets.zero),
-      minimumSize: WidgetStateProperty.all(Size.zero),
-      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-    ), child: body,);
+    return MyButton(onPressed: onPressed, child: body);
   }
 
   Widget _buildButton({
@@ -326,14 +323,6 @@ class LoginView extends GetView<LoginController> {
       ],),),
     );
 
-    return TextButton(
-      onPressed: onPressed,
-      style: ButtonStyle(
-        padding: WidgetStateProperty.all(EdgeInsets.zero),
-        minimumSize: WidgetStateProperty.all(Size.zero),
-        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      ),
-      child: body,
-    );
+    return MyButton(onPressed: onPressed, child: body);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:king_game/common/common.dart';
 
 import 'state.dart';
 
@@ -15,11 +16,15 @@ class LoginController extends GetxController {
   @override
   Future<void> onReady() async {
     super.onReady();
-    await Future.delayed(Duration(milliseconds: 500));
+    await Future.delayed(MyConfig.time.pageTransition);
+    await getData();
+  }
+
+  Future<void> getData() async {
     await state.config.update();
   }
 
   void onLogin() {
-    // print(state.config.toJson());
+    Get.offAllNamed(MyRoutes.applicationView);
   }
 }
