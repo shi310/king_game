@@ -160,7 +160,12 @@ class _MyAlertState extends State<MyAlert> with TickerProviderStateMixin {
       color: Colors.black,
       child: Center(
         child: Container(
+          clipBehavior: Clip.antiAlias,
           constraints: BoxConstraints(maxWidth: widget.webBodyMaxWidth),
+          decoration: BoxDecoration(
+            shape: BoxShape.rectangle,
+            color: Colors.black,
+          ),
           // width: 430 * screenHeight / 932,
           // height: screenHeight,
           child: body,

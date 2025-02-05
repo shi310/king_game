@@ -14,9 +14,9 @@ Future<void> setMyDio({
       sendTimeout: MyConfig.time.outDefault,
     ),
     headers: {
-      'x-token': UserController.to.userToken,
-      'x-device': device,
-      'x-timestamp': DateTime.now().millisecondsSinceEpoch.toString(),
+      'token': UserController.to.userToken,
+      'device': device,
+      'timestamp': DateTime.now().millisecondsSinceEpoch.toString(),
     },
     onResponse: (response) async {
       if (response.data is Map<String, dynamic>) {
@@ -30,4 +30,12 @@ Future<void> setMyDio({
     },
     dioCode: 0,
   );
+}
+
+void setMyDioAddToken() {
+  UserController.to.myDio?.headers?['token'] = UserController.to.userToken;
+}
+
+void setMyDioClearToken() {
+  UserController.to.myDio?.headers?['token'] = '';
 }

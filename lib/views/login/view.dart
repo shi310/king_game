@@ -12,8 +12,8 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     double paddingHorizontal = Get.width * 0.16;
 
-    if(kIsWeb) {
-      paddingHorizontal = MediaQuery.of(context).size.width.clamp(200, MyConfig.app.webBodyMaxWidth) * 0.16;
+    if(kIsWeb || Get.width > 480) {
+      paddingHorizontal = Get.width.clamp(200, MyConfig.app.webBodyMaxWidth) * 0.16;
     }
 
     final body = Column(
@@ -40,22 +40,24 @@ class LoginView extends GetView<LoginController> {
           _buildTextField(
             context: context,
             hintText: Lang.loginViewEmail.tr,
-            controller: controller.accountController,
+            controller: controller.codeController,
             margin: EdgeInsets.symmetric(horizontal: paddingHorizontal / 2),
             height: 55,
             prefixIcon: SizedBox(width: 60, height: 60, child: Center(child: SizedBox(width: 30, height: 30, child: MyIcons.loginEmail,),)),
-            suffixIcon: SizedBox(width: 60, height: 60, child:
-            TextButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                shape: WidgetStateProperty.all(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero, // 去掉圆角
+            suffixIcon: SizedBox(
+              width: 60,
+              height: 60,
+              child: Obx(() => TextButton(
+                onPressed: controller.state.captchaButtonText == Lang.loginViewSendCode.tr ? controller.sendCode : null,
+                style: ButtonStyle(
+                  shape: WidgetStateProperty.all(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.zero,
+                    ),
                   ),
                 ),
-              ),
-              child: Text(Lang.loginViewSendCode.tr, style: TextStyle(color: Color(0XFF397DEA))),
-            ),
+                child: Text(controller.state.captchaButtonText, style: TextStyle(color: Color(0XFF397DEA))),
+              )),
             ),
           ),
 
@@ -78,7 +80,7 @@ class LoginView extends GetView<LoginController> {
             Row(children: [
               Expanded(child: _buildButton(
                 context: context,
-                onPressed: () {},
+                onPressed: controller.onLoginForGoogle,
                 height: 45,
                 child: FittedBox(child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   SizedBox(width: 20, height: 20, child: MyIcons.loginGoogle),
@@ -91,7 +93,7 @@ class LoginView extends GetView<LoginController> {
 
               Expanded(child: _buildButton(
                 context: context,
-                onPressed: () {},
+                onPressed: controller.onLoginForFacebook,
                 height: 45,
                 child: FittedBox(child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   SizedBox(width: 23, height: 23, child: MyIcons.loginFacebook),
@@ -105,7 +107,7 @@ class LoginView extends GetView<LoginController> {
 
             _buildButton(
               context: context,
-              onPressed: () {},
+              onPressed: controller.onGuestLogin,
               height: 45,
               child: FittedBox(child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 SizedBox(width: 23, height: 23, child: MyIcons.loginGuest),
@@ -245,18 +247,15 @@ class LoginView extends GetView<LoginController> {
           ),),
           // child: textField,
         ),
+
         Positioned.fill(child: Center(child: MyStrokeText(
           text: Lang.loginViewSignInForAccount.tr,
-          fontSize: 20,
           fontFamily: 'Sans',
-          fontWeight: FontWeight.w800,
+          fontSize: 20,
           strokeWidth: 2,
-          strokeColor: 0xFF4D4D4D,
-          textColor: 0xFFFFFFFF,
-          shadowColor: 0xFF4D4D4D,
-          // letterSpacing: 8,
-          dx: 0.0,
-          dy: 2.0,
+          strokeColor: Color(0xFF4D4D4D),
+          shadowColor: Color(0xFF4D4D4D),
+          dy: 2.5,
         )))
       ],),),
     );

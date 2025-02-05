@@ -26,6 +26,8 @@ class MyAssets extends StatelessWidget {
   final Color? color;
   final BoxFit? fit;
 
+  static AssetImage image(String name) => AssetImage('assets/images/$name.png');
+
   @override
   Widget build(BuildContext context) {
     switch (style) {

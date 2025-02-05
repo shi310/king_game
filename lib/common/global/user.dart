@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:king_game/common/common.dart';
+import 'package:king_game/common/models/user.dart';
 
 class UserController extends GetxService with WidgetsBindingObserver {
   static UserController get to => Get.find();
@@ -18,6 +19,8 @@ class UserController extends GetxService with WidgetsBindingObserver {
   List<String> wssUrlList = [];
 
   String userToken = '';
+
+  final userInfo = UserModel.empty().obs;
 
   @override
   void onInit() async {
@@ -41,5 +44,16 @@ class UserController extends GetxService with WidgetsBindingObserver {
         break;
     }
     super.didChangeAppLifecycleState(state);
+  }
+
+  Future<void> updateUserInfo({
+    void Function()? onSuccess,
+    void Function(String)? onError,
+  }) async {
+    await userInfo.value.update(
+      onSuccess: onSuccess,
+      onError: onError,
+    );
+    userInfo.refresh();
   }
 }

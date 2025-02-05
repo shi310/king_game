@@ -6,7 +6,7 @@ class _App {
   // token 保存天数
   final int tokenSaveDays = 5;
   // 底部高度
-  final double bottomHeight = 58.0;
+  final double bottomHeight = 100.0;
   // 浏览器的body最大宽度
   final double webBodyMaxWidth = 480.0;
 }

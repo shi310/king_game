@@ -18,9 +18,7 @@ class MineView extends StatelessWidget {
 
   Widget _buildBody(BuildContext context, MineController controller) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Games'),
-      ),
+
       body: Column(
           children: []
 
