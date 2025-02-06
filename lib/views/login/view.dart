@@ -12,7 +12,7 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     double paddingHorizontal = Get.width * 0.16;
 
-    if(kIsWeb || Get.width > 480) {
+    if(kIsWeb || Get.width > MyConfig.app.webBodyMaxWidth) {
       paddingHorizontal = Get.width.clamp(200, MyConfig.app.webBodyMaxWidth) * 0.16;
     }
 
@@ -63,11 +63,22 @@ class LoginView extends GetView<LoginController> {
 
           const SizedBox(height: 10),
 
-          _buildLoginButton(
+          buildButton(
             context: context,
             margin: EdgeInsets.symmetric(horizontal: paddingHorizontal / 2),
             onPressed: controller.onLogin,
             height: 55,
+            shadowColor: Color(0XFF63A56F),
+            colors: [Color(0XFF77FE81), Color(0XFF7CEE63)],
+            child: MyStrokeText(
+              text: Lang.loginViewSignInForAccount.tr,
+              fontFamily: 'Sans',
+              fontSize: 20,
+              strokeWidth: 3,
+              strokeColor: Color(0xFF4D4D4D),
+              shadowColor: Color(0xFF4D4D4D),
+              dy: 3,
+            ),
           ),
         ]),
 
@@ -187,80 +198,6 @@ class LoginView extends GetView<LoginController> {
         )
       ],),),
     );
-  }
-
-  Widget _buildLoginButton({
-    required BuildContext context,
-    void Function()? onPressed,
-    EdgeInsetsGeometry? margin,
-    double? height,
-  }) {
-    final borderRadius = BorderRadius.circular(10);
-
-    final body = Container(
-      margin: margin,
-      height: height,
-      decoration: BoxDecoration(
-        color: Color(0XFF63A56F),
-        borderRadius: borderRadius,
-        border: Border.all(color: Colors.black, width: 2),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black,
-            offset: Offset(0, 2),
-          ),
-        ]
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: LayoutBuilder(builder: (context, constraints) => Stack(alignment: AlignmentDirectional.topCenter, children: [
-        Container(
-          height: constraints.maxHeight - 4,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0XFF77FE81), Color(0XFF7CEE63)],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
-            borderRadius: borderRadius * 0.8,
-          ),
-          child: SingleChildScrollView(padding: EdgeInsets.fromLTRB(4, 4, 4, 0), child: Container(
-            alignment: Alignment.topLeft,
-            width: constraints.maxWidth,
-            height: (constraints.maxHeight - 4) / 2,
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.4),
-              borderRadius: BorderRadius.only(
-                topLeft: borderRadius.copyWith().topLeft,
-                topRight: borderRadius.copyWith().topRight,
-              ),
-              shape: BoxShape.rectangle
-            ),
-            clipBehavior: Clip.antiAlias,
-            child: Container(
-              height: 8,
-              width: 8,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-            ),
-          ),),
-          // child: textField,
-        ),
-
-        Positioned.fill(child: Center(child: MyStrokeText(
-          text: Lang.loginViewSignInForAccount.tr,
-          fontFamily: 'Sans',
-          fontSize: 20,
-          strokeWidth: 2,
-          strokeColor: Color(0xFF4D4D4D),
-          shadowColor: Color(0xFF4D4D4D),
-          dy: 2.5,
-        )))
-      ],),),
-    );
-
-    return MyButton(onPressed: onPressed, child: body);
   }
 
   Widget _buildButton({

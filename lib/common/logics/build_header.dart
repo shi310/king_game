@@ -37,6 +37,8 @@ Widget buildHeader(BuildContext context, {
           overflow: TextOverflow.clip,
           maxLines: 1,
           fontSize: 14,
+          strokeWidth: 3,
+          dy: 4,
         )),
         Obx(() => Text('ID: ${UserController.to.userInfo.value.id}',
           maxLines: 1,

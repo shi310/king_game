@@ -1,5 +1,6 @@
 library;
 
+export 'build_button.dart';
 export 'build_header.dart';
 export 'init_lang.dart';
 export 'init_theme.dart';

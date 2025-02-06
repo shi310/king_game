@@ -22,9 +22,6 @@ class GamesView extends StatelessWidget {
   Widget _buildBody(BuildContext context, GamesController controller) {
     return Scaffold(
       backgroundColor: Colors.blue,
-      // appBar: kIsWeb ? null : AppBar(
-      //   backgroundColor: Colors.white.withAlpha(0),
-      // ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(image: MyIcons.gameBackground, fit: BoxFit.fill),
@@ -94,7 +91,7 @@ class GamesView extends StatelessWidget {
   }) {
     double bodyWidth = Get.width;
 
-    if(kIsWeb || bodyWidth > 480) {
+    if(kIsWeb || bodyWidth > MyConfig.app.webBodyMaxWidth) {
       bodyWidth = Get.width.clamp(200, MyConfig.app.webBodyMaxWidth);
     }
 
@@ -117,6 +114,8 @@ class GamesView extends StatelessWidget {
           text: title,
           fontSize: 20,
           fontFamily: 'Sans',
+          strokeWidth: 4,
+          dy: 5,
         ),
       )
     ]);
@@ -170,7 +169,7 @@ class GamesView extends StatelessWidget {
   Widget _buildSwiper(BuildContext context) {
     double bodyWidth = Get.width;
 
-    if(kIsWeb || bodyWidth > 480) {
+    if(kIsWeb || bodyWidth > MyConfig.app.webBodyMaxWidth) {
       bodyWidth = Get.width.clamp(200, MyConfig.app.webBodyMaxWidth);
     }
 

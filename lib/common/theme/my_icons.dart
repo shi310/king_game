@@ -38,4 +38,12 @@ class MyIcons {
   static MyAssets gameTitle(int index) => MyAssets(name: 'game_${index}_title', style: MyAssetStyle.png);
   static MyAssets get gameTimer => MyAssets(name: 'game_timer', style: MyAssetStyle.png);
 
+  static MyAssets storeSkinLevel(int index) => MyAssets(name: 'store_skin_level_$index', style: MyAssetStyle.png);
+  static MyAssets storeSkin(String index) => MyAssets(name: 'store_skin_$index', style: MyAssetStyle.png);
+
+  static MyAssets get meButtonTopLeft => MyAssets(name:'me_button_top_left', style: MyAssetStyle.png);
+  static MyAssets get meButtonTopRight => MyAssets(name:'me_button_top_right', style: MyAssetStyle.png);
+  static MyAssets get meButtonBottomLeft => MyAssets(name:'me_button_bottom_left', style: MyAssetStyle.png);
+  static MyAssets get meButtonBottomRight => MyAssets(name:'me_button_bottom_right', style: MyAssetStyle.png);
+  static MyAssets get meButtonBottomIcon => MyAssets(name:'me_button_bottom_icon', style: MyAssetStyle.png);
 }

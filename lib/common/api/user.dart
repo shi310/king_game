@@ -9,8 +9,8 @@ class _User {
   final String exchangeDiamond = '/user/exchange';
   // 获取银行卡信息
   final String getBankCard = '/user/updateBank';
-  // 获取银行列表
-  final String getBankList = '/bank/bankList';
-  // 支付下单
-  final String payOrder = '/order/payOrder';
+  // 获取商城信息
+  final String listAllSkin = '/user/listAllSkin';
+  // 兑换皮肤
+  final String redeemSkin = '/user/redeemSkin';
 }

@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:king_game/common/common.dart';
-import 'package:king_game/common/models/login.dart';
 
 class LoginState {
   String title = 'Login View';

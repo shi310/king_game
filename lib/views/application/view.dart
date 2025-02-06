@@ -100,10 +100,10 @@ class ApplicationView extends GetView<ApplicationController> {
       text: title,
       fontFamily: 'Sans',
       fontSize: 20,
-      strokeWidth: 2,
+      strokeWidth: 4,
       strokeColor: Color(0xFF4D4D4D),
       shadowColor: Color(0xFF4D4D4D),
-      dy: 2.5,
+      dy: 4,
     );
 
 
@@ -158,6 +158,7 @@ class ApplicationView extends GetView<ApplicationController> {
       );
       return MyButton(
         onPressed: onPressed,
+        isDebounce: false,
         child: Stack(alignment: AlignmentDirectional.center, children: [
           backgroundBox,
           if (controller.state.pageIndex == index)

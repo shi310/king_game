@@ -7,7 +7,7 @@ class MyStrokeText extends StatelessWidget {
     this.fontFamily,
     this.fontSize,
     this.fontWeight,
-    this.strokeWidth = 2.0,
+    this.strokeWidth = 3,
     this.strokeColor = const Color(0xFF000000),
     this.textColor = const Color(0xFFFFFFFF),
     this.shadowColor = const Color(0xFF000000),
@@ -16,6 +16,7 @@ class MyStrokeText extends StatelessWidget {
     this.dy = 2.5,
     this.overflow,
     this.maxLines,
+    this.textAlign,
   });
   final String text;
   final String? fontFamily;
@@ -30,15 +31,17 @@ class MyStrokeText extends StatelessWidget {
   final double letterSpacing;
   final TextOverflow? overflow;
   final int? maxLines;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: Alignment.center,
+      alignment: AlignmentDirectional.center,
       children: [
         // 描边的文字
         Text(
           text,
+          textAlign: textAlign,
           maxLines: maxLines,
           style: TextStyle(
             letterSpacing: letterSpacing,
@@ -56,6 +59,7 @@ class MyStrokeText extends StatelessWidget {
         Text(
           text,
           maxLines: maxLines,
+          textAlign: textAlign,
           style: TextStyle(
             fontFamily: fontFamily,
             fontSize: fontSize,
