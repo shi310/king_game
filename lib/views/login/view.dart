@@ -44,21 +44,17 @@ class LoginView extends GetView<LoginController> {
             margin: EdgeInsets.symmetric(horizontal: paddingHorizontal / 2),
             height: 55,
             prefixIcon: SizedBox(width: 60, height: 60, child: Center(child: SizedBox(width: 30, height: 30, child: MyIcons.loginEmail,),)),
-            suffixIcon: SizedBox(
-              width: 60,
-              height: 60,
-              child: Obx(() => TextButton(
-                onPressed: controller.state.captchaButtonText == Lang.loginViewSendCode.tr ? controller.sendCode : null,
-                style: ButtonStyle(
-                  shape: WidgetStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
-                    ),
+            suffixIcon: Obx(() => TextButton(
+              onPressed: controller.state.captchaButtonText == Lang.loginViewSendCode.tr ? controller.sendCode : null,
+              style: ButtonStyle(
+                shape: WidgetStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.zero,
                   ),
                 ),
-                child: Text(controller.state.captchaButtonText, style: TextStyle(color: Color(0XFF397DEA))),
-              )),
-            ),
+              ),
+              child: Text(controller.state.captchaButtonText, style: TextStyle(color: Color(0XFF397DEA))),
+            )),
           ),
 
           const SizedBox(height: 10),

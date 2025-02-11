@@ -19,4 +19,6 @@ class _Time {
   final Duration debounce = const Duration(seconds: 1);
   // 缓存时间
   final Duration cache = const Duration(days: 1);
+  // 本地持久化存储
+  final Duration cachePersistence = const Duration(days: 365);
 }

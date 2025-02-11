@@ -14,3 +14,14 @@ Future<void> initLang() async {
 
   MyLang.update(mode: mode);
 }
+
+// Future<String> getLocaleString() async {
+//   final localeCache = await MyCache.getFile('locale');
+//   var localeString = await localeCache?.readAsString();
+//
+//   MyLangMode mode = MyLangMode.fromLocale(Get.deviceLocale ?? MyLang.defaultMode);
+//
+//   localeString ??= mode.toString();
+//
+//   return localeString;
+// }

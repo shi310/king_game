@@ -31,8 +31,9 @@ class LoginController extends GetxController {
   }
 
   void sendCode() async {
+    MyAudio.play(MyAudioPath.click);
     if (accountController.text.isEmpty) {
-      MyAlert.showSnack(child: Text('请填写手机号', style: TextStyle(color: Colors.white)));
+      MyAlert.showSnack(child: Text(Lang.loginViewPhoneEmptyAlert.tr, style: TextStyle(color: Colors.white)));
       return;
     }
 
@@ -41,7 +42,7 @@ class LoginController extends GetxController {
         'mobile': accountController.text,
       },
       onSuccess: (code, msg, data) {
-        MyAlert.showSnack(child: Text('发送成功', style: TextStyle(color: Colors.white)));
+        MyAlert.showSnack(child: Text(Lang.loginViewSendCodeSuccess.tr, style: TextStyle(color: Colors.white)));
 
         timer?.cancel();
         state.captchaCountdown = 60;
@@ -65,12 +66,12 @@ class LoginController extends GetxController {
 
   void onLogin() async {
     if (accountController.text.isEmpty) {
-      MyAlert.showSnack(child: Text('请填写手机号', style: TextStyle(color: Colors.white)));
+      MyAlert.showSnack(child: Text(Lang.loginViewPhoneEmptyAlert.tr, style: TextStyle(color: Colors.white)));
       return;
     }
 
     if (codeController.text.isEmpty) {
-      MyAlert.showSnack(child: Text('请填写验证码', style: TextStyle(color: Colors.white)));
+      MyAlert.showSnack(child: Text(Lang.loginViewCodeEmptyAlert.tr, style: TextStyle(color: Colors.white)));
       return;
     }
     showMyLoading();
@@ -121,10 +122,10 @@ class LoginController extends GetxController {
   }
 
   void onLoginForGoogle() {
-    MyAlert.showSnack(child: Text('功能正在开发，敬请期待', style: TextStyle(color: Colors.white)));
+    MyAlert.showSnack(child: Text(Lang.debug.tr, style: TextStyle(color: Colors.white)));
   }
 
   void onLoginForFacebook() {
-    MyAlert.showSnack(child: Text('功能正在开发，敬请期待', style: TextStyle(color: Colors.white)));
+    MyAlert.showSnack(child: Text(Lang.debug.tr, style: TextStyle(color: Colors.white)));
   }
 }

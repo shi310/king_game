@@ -34,6 +34,35 @@ class SkinListModel {
   }
 }
 
+class BagItemListModel {
+  List<SkinModel> list;
+
+  BagItemListModel({required this.list});
+
+  factory BagItemListModel.fromJson(List<dynamic> json) => BagItemListModel(
+    list: List<SkinModel>.from(json.map((x) => SkinModel.fromJson(x))),
+  );
+
+  factory BagItemListModel.empty() => BagItemListModel(
+    list: [],
+  );
+
+  Map<String, dynamic> toJson() => {
+    'list': List<dynamic>.from(list.map((x) => x.toJson())),
+  };
+
+  Future<void> update() async {
+    return UserController.to.myDio?.post<SkinListModel>(MyApi.user.getBag,
+      onSuccess: (code, msg, data) {
+        list = data.list;
+      },
+      onError: (error) {
+      },
+      onModel: (m) => SkinListModel.fromJson(m),
+    );
+  }
+}
+
 class SkinModel {
   int id;
   String createTime;

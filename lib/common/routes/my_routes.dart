@@ -7,4 +7,6 @@ class MyRoutes {
   static const loginView = '/login_view';
   // application
   static const applicationView = '/application_view';
+  // bag
+  static const bagView = '/bag_view';
 }

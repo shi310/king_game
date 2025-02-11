@@ -11,15 +11,33 @@ class UserController extends GetxService with WidgetsBindingObserver {
   final Completer<void> _initCompleter = Completer<void>();
   Future<void> get initComplete => _initCompleter.future;
 
+  // dio
   MyDio? myDio;
 
+  // base url
   List<String> baseUrlList = [];
 
+  // wss url
   List<String> wssUrlList = [];
 
+  // token
   String userToken = '';
 
+  // 用户信息
   final userInfo = UserModel.empty().obs;
+
+  // 语言
+  final _localeString = MyLangMode.zh.toString().obs;
+  String get localeString => _localeString.value;
+  set localeString(String value) => _localeString.value = value;
+
+  // 音频
+  final _isOpenAudio = true.obs;
+  bool get isOpenAudio => _isOpenAudio.value;
+  set isOpenAudio(bool value) => _isOpenAudio.value = value;
+
+  // 签到信息
+  final signInData = SignInModel.empty().obs;
 
   @override
   void onInit() async {

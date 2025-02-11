@@ -55,7 +55,7 @@ class StoreView extends StatelessWidget {
                     fontSize: 13,
                   );
                   final price = MyStrokeText(
-                    text: '${item.value.price}点卷',
+                    text: '${item.value.price}${Lang.points.tr}',
                     fontFamily: 'Sans',
                     fontSize: 14,
                   );

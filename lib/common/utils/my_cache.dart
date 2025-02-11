@@ -18,7 +18,7 @@ class MyCache {
 
   static Future<File?> getSingleFile(String url) => _instance._getSingleFile(url);
   static Future<File?> getFile(String url) => _instance._getFile(url);
-  static Future<void> putFile(String key, String data, {Duration maxAge = _timeCache}) => _instance._putFile(key, data, maxAge: maxAge);
+  static Future<void> putFile(String url, String data, {Duration maxAge = _timeCache}) => _instance._putFile(url, data, maxAge: maxAge);
   static Future<void> removeFile(String url) => _instance._removeFile(url);
   static Future<void> clear() => _instance._clear();
 
@@ -52,16 +52,16 @@ class MyCache {
     return fileInfo?.file;
   }
 
-  Future<void> _putFile(String key, String data, {
+  Future<void> _putFile(String url, String data, {
     Duration maxAge = _timeCache,
   }) async {
     try {
       Uint8List uint8list = Uint8List.fromList(utf8.encode(data));
-      await cacheManager.putFile(key, uint8list,
-        key: key,
+      await cacheManager.putFile(url, uint8list,
+        key: url,
         maxAge: maxAge,
       );
-      log('成功缓存文件 -> $key');
+      log('成功缓存文件 -> $url');
     } catch (e) {
       log('缓存文件时出错 -> $e');
     }

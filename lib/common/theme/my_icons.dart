@@ -46,4 +46,61 @@ class MyIcons {
   static MyAssets get meButtonBottomLeft => MyAssets(name:'me_button_bottom_left', style: MyAssetStyle.png);
   static MyAssets get meButtonBottomRight => MyAssets(name:'me_button_bottom_right', style: MyAssetStyle.png);
   static MyAssets get meButtonBottomIcon => MyAssets(name:'me_button_bottom_icon', style: MyAssetStyle.png);
+
+  static MyAssets get switchOn => MyAssets(name:'switch_on', style: MyAssetStyle.png);
+  static MyAssets get switchOff => MyAssets(name:'switch_off', style: MyAssetStyle.png);
+  static MyAssets get close => MyAssets(name:'close', style: MyAssetStyle.png);
+
+  static AssetImage get alertBodyBackground =>  MyAssets.image('alert_body_background');
+  static MyAssets get alertHeaderCenter => MyAssets(name:'alert_header_center', style: MyAssetStyle.png, width: double.infinity, fit: BoxFit.fill);
+  static MyAssets get alertHeaderLeft => MyAssets(name:'alert_header_left', style: MyAssetStyle.png);
+  static MyAssets get alertHeaderRight => MyAssets(name:'alert_header_right', style: MyAssetStyle.png);
+  static MyAssets get alertHeaderTopLeft => MyAssets(name:'alert_header_top_left', style: MyAssetStyle.png);
+  static MyAssets get alertHeaderTopRight => MyAssets(name:'alert_header_top_right', style: MyAssetStyle.png);
+  static MyAssets get alertBottomLeft1 => MyAssets(name:'alert_bottom_left_1', style: MyAssetStyle.png);
+  static MyAssets get alertBottomLeft2 => MyAssets(name:'alert_bottom_left_2', style: MyAssetStyle.png);
+  static MyAssets get alertBottomCenter => MyAssets(name:'alert_bottom_center', style: MyAssetStyle.png, width: double.infinity, fit: BoxFit.fill);
+  static MyAssets get alertBottomRight1 => MyAssets(name:'alert_bottom_right_1', style: MyAssetStyle.png);
+  static MyAssets get alertBottomRight2 => MyAssets(name:'alert_bottom_right_2', style: MyAssetStyle.png);
+
+
+  static MyAssets get langChecked => MyAssets(name:'lang_checked', style: MyAssetStyle.png);
+  static MyAssets get langCn => MyAssets(name:'lang_cn', style: MyAssetStyle.png);
+  static MyAssets get langEn => MyAssets(name:'lang_en', style: MyAssetStyle.png);
+  static MyAssets get langVn => MyAssets(name:'lang_vn', style: MyAssetStyle.png);
+
+  static MyAssets get settingButtonAudio => MyAssets(name:'setting_button_audio', style: MyAssetStyle.png);
+  static MyAssets get settingButtonLang => MyAssets(name:'setting_button_lang', style: MyAssetStyle.png);
+  static MyAssets get settingButtonLoginOut => MyAssets(name:'setting_button_login_out', style: MyAssetStyle.png);
+  static MyAssets get settingButtonVersion => MyAssets(name:'setting_button_version', style: MyAssetStyle.png);
+
+  static MyAssets get signInDay => MyAssets(name:'sign_in_day', style: MyAssetStyle.png);
+  static MyAssets get signInMiss => MyAssets(name:'sign_in_miss', style: MyAssetStyle.png);
+  static MyAssets get signInNote => MyAssets(name:'sign_in_note', style: MyAssetStyle.png);
+  static MyAssets get signInAlreadyWinIcon => MyAssets(name:'sign_in_already_win_icon', style: MyAssetStyle.png);
+  static MyAssets get signInNeverWinIcon => MyAssets(name:'sign_in_never_win_icon', style: MyAssetStyle.png);
+  static MyAssets get signInTitle => MyAssets(name:'sign_in_title', style: MyAssetStyle.png);
+  static MyAssets signInWin(String index) => MyAssets(name: 'sign_in_win_$index', style: MyAssetStyle.png);
+  static MyAssets get signInWinDay => MyAssets(name:'sign_in_win_day', style: MyAssetStyle.png);
+
+  static MyAssets get inviteAlreadyBackground => MyAssets(name:'invite_already_background', style: MyAssetStyle.png);
+  static MyAssets get inviteAlreadyCount => MyAssets(name:'invite_already_count', style: MyAssetStyle.png);
+  static MyAssets get inviteButton0 => MyAssets(name:'invite_button_0', style: MyAssetStyle.png);
+  static MyAssets get inviteButton1 => MyAssets(name:'invite_button_1', style: MyAssetStyle.png);
+  static MyAssets get inviteHeaderIcon => MyAssets(name:'invite_header_icon', style: MyAssetStyle.png);
+  static MyAssets get inviteRecharged => MyAssets(name:'invite_recharged', style: MyAssetStyle.png);
+  static MyAssets get inviteRegister => MyAssets(name:'invite_register', style: MyAssetStyle.png);
+  static MyAssets get inviteUrl => MyAssets(name:'invite_url', style: MyAssetStyle.png);
+  static MyAssets get inviteUrlBackgroundLeft => MyAssets(name:'invite_url_background_left', style: MyAssetStyle.png);
+  static MyAssets get inviteUrlBackgroundRight => MyAssets(name:'invite_url_background_right', style: MyAssetStyle.png);
+  static MyAssets get inviteUrlBackgroundMiddle => MyAssets(name:'invite_url_background_middle', style: MyAssetStyle.png, width: double.infinity, fit: BoxFit.fill);
+  static MyAssets get inviteUrlCopy => MyAssets(name:'invite_url_copy', style: MyAssetStyle.png);
+  static MyAssets get inviteUrlShare => MyAssets(name:'invite_url_share', style: MyAssetStyle.png);
+  static MyAssets get inviteWinIconLeft => MyAssets(name:'invite_win_icon_left', style: MyAssetStyle.png);
+  static MyAssets get inviteWinIconRight => MyAssets(name:'invite_win_icon_right', style: MyAssetStyle.png);
+  static MyAssets get inviteWinIconMiddle => MyAssets(name:'invite_win_icon_middle', style: MyAssetStyle.png, width: double.infinity, fit: BoxFit.fill);
+
+  static MyAssets get back => MyAssets(name: 'back', style: MyAssetStyle.png);
+  static MyAssets get bag => MyAssets(name: 'bag', style: MyAssetStyle.png);
+
 }

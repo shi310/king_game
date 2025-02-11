@@ -49,8 +49,10 @@ class CustomButtonState extends State<MyButton> {
   void _onPressed() {
     if (!_isClickable || widget.onPressed == null) return;
 
+    MyAudio.play(MyAudioPath.click);
+    widget.onPressed?.call();
+
     if (widget.isDebounce) {
-      // 开启防抖模式
       setState(() {
         _isClickable = false;
         _opacity = 0.5;
@@ -64,10 +66,6 @@ class CustomButtonState extends State<MyButton> {
         });
       });
     }
-
-    // 播放音效并触发点击事件
-    MyAudio.play(MyAudioPath.click);
-    widget.onPressed?.call();
   }
 
   void _onMouseEnter(PointerEvent details) {

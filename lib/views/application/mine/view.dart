@@ -31,9 +31,9 @@ class MineView extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(children: [
                 SizedBox(height: 20),
-                _buildHeaderButtons(context),
+                _buildHeaderButtons(context, controller),
                 SizedBox(height: 20),
-                _buildBodyButtons(context),
+                _buildBodyButtons(context, controller),
                 SizedBox(height: 20),
                 SizedBox(height: MyConfig.app.bottomHeight),
               ])
@@ -44,7 +44,7 @@ class MineView extends StatelessWidget {
     );
   }
 
-  Widget _buildHeaderButtons(BuildContext context) {
+  Widget _buildHeaderButtons(BuildContext context, MineController controller) {
     final height = kIsWeb || Get.width > MyConfig.app.webBodyMaxWidth ? 55.0 : 46.0;
     return Row(children: [
       SizedBox(width: 10),
@@ -56,13 +56,14 @@ class MineView extends StatelessWidget {
         height: height,
         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           SizedBox(height: 30, child: MyIcons.headerStone),
-          MyStrokeText(
-            text: '购买点券',
+          Flexible(child: FittedBox(child: MyStrokeText(
+            text: Lang.mineViewBuyPoints.tr,
             strokeWidth: 3,
             dy: 3,
             fontSize: 15,
             fontFamily: 'Sans',
-          ),
+          ))),
+          SizedBox(width: 10),
         ]),
       )),
       SizedBox(width: 2),
@@ -74,31 +75,80 @@ class MineView extends StatelessWidget {
         height: height,
         child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           SizedBox(height: 30, child: MyIcons.headerCard),
-          MyStrokeText(
-            text: '购买点券',
+          Flexible(child: FittedBox(child: MyStrokeText(
+            text: Lang.mineViewRedeemRaffleTickets.tr,
             strokeWidth: 3,
             dy: 3,
             fontSize: 15,
             fontFamily: 'Sans',
-          ),
+          ))),
+          SizedBox(width: 10),
         ]),
       )),
       SizedBox(width: 10),
     ]);
   }
 
-  Widget _buildBodyButtons(BuildContext context) {
+  Widget _buildBodyButtons(BuildContext context, MineController controller) {
     final buttons = Column(children: [
       Row(children: [
         SizedBox(width: 10),
-        Expanded(child: MyButton(onPressed: () {}, child: MyIcons.meButtonTopLeft)),
-        Expanded(child: MyButton(onPressed: () {}, child: MyIcons.meButtonTopRight)),
+        Expanded(child: MyButton(
+          onPressed: controller.onBag,
+          child: Stack(children: [
+            MyIcons.meButtonTopLeft,
+            Positioned.fill(bottom: -50, left: 10, right: 10, child: Center(child: FittedBox(child: MyStrokeText(
+              text: Lang.mineViewMyBag.tr,
+              strokeWidth: 5,
+              dy: 3,
+              fontFamily: 'Sans',
+              fontSize: 17,
+            ))))
+          ])
+        )),
+        Expanded(child: MyButton(
+          onPressed: controller.onInvite,
+          child: Stack(children: [
+            MyIcons.meButtonTopRight,
+            Positioned.fill(bottom: -50, left: 10, right: 10, child: Center(child: FittedBox(child: MyStrokeText(
+              text: Lang.mineViewInviteFriends.tr,
+              strokeWidth: 5,
+              dy: 3,
+              fontFamily: 'Sans',
+              fontSize: 17,
+            )))),
+          ]),
+        )),
         SizedBox(width: 10),
       ]),
       Row(children: [
         SizedBox(width: 10),
-        Expanded(child: MyButton(onPressed: () {}, child: MyIcons.meButtonBottomLeft)),
-        Expanded(child: MyButton(onPressed: () {}, child: MyIcons.meButtonBottomRight)),
+        Expanded(child: MyButton(
+          onPressed: controller.onSignIn,
+          child: Stack(children: [
+            MyIcons.meButtonBottomLeft,
+            Positioned.fill(bottom: -50, left: 10, right: 10, child: Center(child: FittedBox(child: MyStrokeText(
+              text: Lang.mineViewDailySignIn.tr,
+              strokeWidth: 5,
+              dy: 3,
+              fontFamily: 'Sans',
+              fontSize: 17,
+            )))),
+          ]),
+        )),
+        Expanded(child: MyButton(
+          onPressed: controller.onSetting,
+          child: Stack(children: [
+            MyIcons.meButtonBottomRight,
+            Positioned.fill(bottom: -50, left: 10, right: 10, child: Center(child: FittedBox(child: MyStrokeText(
+              text: Lang.mineViewSetting.tr,
+              strokeWidth: 5,
+              dy: 5,
+              fontFamily: 'Sans',
+              fontSize: 17,
+            )))),
+          ]),
+        )),
         SizedBox(width: 10),
       ]),
     ]);

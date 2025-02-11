@@ -34,5 +34,12 @@ class MyPages {
       page: () => const ApplicationView(),
       binding: ApplicationBinding(),
     ),
+
+    // 背包
+    GetPage(
+      name: MyRoutes.bagView,
+      page: () => const BagView(),
+      binding: BagBinding(),
+    ),
   ];
 }

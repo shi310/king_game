@@ -2,14 +2,17 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:king_game/common/common.dart';
+import 'package:king_game/views/application/store/controller.dart';
 
 part 'lang_keys.dart';
 part 'key_en.dart';
 part 'key_zh.dart';
+part 'key_vn.dart';
 
 class MyLang extends Translations {
-  static final defaultMode = MyLangMode.zh.toLocale(); // 默认语言模式
-  static final fallbackMode = MyLangMode.zh.toLocale(); // 回退语言模式
+  static final defaultMode = MyLangMode.zh.toLocale();
+  static final fallbackMode = MyLangMode.zh.toLocale();
 
   static const localizationsDelegates = [
     GlobalMaterialLocalizations.delegate,
@@ -20,11 +23,13 @@ class MyLang extends Translations {
   static final supportedLocales = [
     MyLangMode.zh,
     MyLangMode.en,
+    MyLangMode.vn,
   ].map((mode) => mode.toLocale()).toList();
 
   final _keys = {
     MyLangMode.zh.toLocaleTag(): zh,
     MyLangMode.en.toLocaleTag(): en,
+    MyLangMode.vn.toLocaleTag(): vn,
   };
 
   @override
@@ -33,11 +38,15 @@ class MyLang extends Translations {
   /// 更改语言
   static Future<void> update({
     required MyLangMode mode,
-    void Function(MyLangMode mode)? onSuccess,
   }) async {
     await Get.updateLocale(mode.toLocale());
-    onSuccess?.call(mode);
-
+    UserController.to.localeString = mode.toString();
+    MyCache.putFile('locale', mode.toString(), maxAge: MyConfig.time.cachePersistence);
+    if (Get.isRegistered<StoreController>()) {
+      final storeController = Get.find<StoreController>();
+      await storeController.state.skins.value.update(language: mode.toString());
+      storeController.state.skins.refresh();
+    }
     log('当前APP语言：${mode.toLocale()}');
     log('当前系统语言：${Get.deviceLocale}');
   }
@@ -87,7 +96,8 @@ class SystemLocaleObserver with WidgetsBindingObserver {
 
 enum MyLangMode {
   en('en'),
-  zh('zh');
+  zh('zh'),
+  vn('vn');
 
   final String mode;
 
@@ -99,6 +109,8 @@ enum MyLangMode {
         return MyLangMode.en;
       case 'zh':
         return MyLangMode.zh;
+      case 'vn':
+        return MyLangMode.vn;
       default:
         return MyLangMode.zh;
     }
@@ -111,6 +123,8 @@ enum MyLangMode {
         return MyLangMode.zh;
       case 'en':
         return MyLangMode.en;
+      case 'vn':
+        return MyLangMode.vn;
       default:
         return MyLangMode.zh;
     }
@@ -119,9 +133,11 @@ enum MyLangMode {
   Locale toLocale() {
     switch (this) {
       case MyLangMode.en:
-        return const Locale('en', 'US'); // English (United States)
+        return const Locale('en', 'US');
       case MyLangMode.zh:
-        return const Locale('zh', 'CN'); // Chinese (China)
+        return const Locale('zh', 'CN');
+      case MyLangMode.vn:
+        return const Locale('vi', 'VN');
     }
   }
 

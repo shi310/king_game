@@ -13,4 +13,10 @@ class _User {
   final String listAllSkin = '/user/listAllSkin';
   // 兑换皮肤
   final String redeemSkin = '/user/redeemSkin';
+  // 获取邀请好友的信息
+  final String getInviteInfo = '/user/invite';
+  // 获取好友列表
+  final String getInviteFriends = '/user/inviteUser';
+  // 背包
+  final String getBag = '/user/bag';
 }

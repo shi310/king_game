@@ -1,5 +1,6 @@
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:king_game/common/common.dart';
 
 enum MyAudioPath {
   achievement('audios/achievement.mp3'), 
@@ -30,6 +31,9 @@ class MyAudio {
 
   // 播放音频文件
   Future<void> _play(MyAudioPath audioPath) async {
+    if(!UserController.to.isOpenAudio) {
+      return;
+    }
     // 检查播放器状态
     if (_audioPlayer.state == PlayerState.playing) {
       await _audioPlayer.stop();

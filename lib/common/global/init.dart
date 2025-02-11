@@ -11,6 +11,8 @@ Future<void> initialized() async {
     initTheme();
     // 初始化语言
     initLang();
+    // 初始化音效
+    initAudio();
     // 配置dio
     setMyDio(baseUrl: MyConfig.urls.apiBaseUrl);
   });

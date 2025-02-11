@@ -113,7 +113,13 @@ class ApplicationView extends GetView<ApplicationController> {
       final defaultIcon = Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         SizedBox(height: iconSize, child: icon),
         SizedBox(height: 4),
-        Text(title, style: TextStyle(fontSize: 14, color: Colors.white)),
+        MyStrokeText(
+          text: title,
+          fontSize: 14,
+          strokeWidth: 2,
+          dy: 2,
+        ),
+        // Text(title, style: TextStyle(fontSize: 14, color: Colors.white)),
       ]);
 
       final selectedIcon = SizedBox(height: iconSize, child: icon);
