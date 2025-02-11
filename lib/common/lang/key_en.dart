@@ -67,4 +67,8 @@ const Map<String, String> en = {
   Lang.debug: 'Feature under development, stay tuned',
 
   Lang.bag: 'My Bag',
+
+  Lang.rechargeViewTitle: 'Token Store',
+  Lang.rechargeViewBuy: 'Buy Tokens',
+  Lang.rechargeViewMoney: '\$',
 };

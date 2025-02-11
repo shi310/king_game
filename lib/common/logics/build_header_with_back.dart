@@ -6,6 +6,7 @@ import 'package:king_game/common/common.dart';
 Widget buildHeaderWithBack(BuildContext context, {
   double headerHeight = 55.0,
   bool isShowMarker = false,
+  required Widget title,
 }) {
   final double padding = 10.0;
 
@@ -112,7 +113,7 @@ Widget buildHeaderWithBack(BuildContext context, {
     children: [
       // SizedBox(width: padding),
       Expanded(child: buildButton(
-        onPressed: () {},
+        onPressed: () => Get.toNamed(MyRoutes.rechargeView),
         icon: MyIcons.headerStone,
         addButton: MyIcons.headerAdd2,
       )),
@@ -176,18 +177,7 @@ Widget buildHeaderWithBack(BuildContext context, {
           child: body,
         ),
         SizedBox(height: 10),
-        buildBack(child: Row(children: [
-          SizedBox(width: 20),
-          SizedBox(height: 30, child: MyIcons.bag),
-          SizedBox(width: 8),
-          MyStrokeText(
-            text: Lang.bag.tr,
-            fontSize: 18,
-            strokeWidth: 4,
-            dy: -3,
-            fontFamily: 'Sans',
-          )
-        ])),
+        title,
       ],
     )),
   );

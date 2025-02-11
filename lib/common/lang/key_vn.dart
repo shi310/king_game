@@ -67,4 +67,8 @@ const Map<String, String> vn = {
   Lang.debug: 'Tính năng đang phát triển, vui lòng chờ',
 
   Lang.bag: 'Túi đồ',
+
+  Lang.rechargeViewTitle: 'Cửa hàng điểm',
+  Lang.rechargeViewBuy: 'Mua điểm',
+  Lang.rechargeViewMoney: '₫',
 };

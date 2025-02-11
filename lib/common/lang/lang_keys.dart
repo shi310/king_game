@@ -68,4 +68,8 @@ abstract class Lang {
 
   static const copySuccessful = "copy_successful";
   static const bag = "bag";
+
+  static const rechargeViewTitle = "recharge_view_title";
+  static const rechargeViewBuy = "recharge_view_buy";
+  static const rechargeViewMoney = "recharge_view_money";
 }

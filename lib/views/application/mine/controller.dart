@@ -22,4 +22,8 @@ class MineController extends GetxController {
     // MyAlert.showSnack(child: Text(Lang.debug.tr, style: TextStyle(color: Colors.white)));
     Get.toNamed(MyRoutes.bagView);
   }
+
+  void onRecharge() {
+    Get.toNamed(MyRoutes.rechargeView);
+  }
 }

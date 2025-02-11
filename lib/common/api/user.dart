@@ -19,4 +19,6 @@ class _User {
   final String getInviteFriends = '/user/inviteUser';
   // 背包
   final String getBag = '/user/bag';
+  // 支付下单
+  final String payOrder = '/user/payOrder';
 }

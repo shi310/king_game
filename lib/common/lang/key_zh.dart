@@ -66,5 +66,9 @@ const Map<String, String> zh = {
   Lang.loginViewCodeEmptyAlert: '验证码不能为空',
   Lang.debug: '功能正在开发，敬请期待',
 
-  Lang.bag: '我的背包'
+  Lang.bag: '我的背包',
+
+  Lang.rechargeViewTitle: '点券商店',
+  Lang.rechargeViewBuy: '购买点券',
+  Lang.rechargeViewMoney: '¥',
 };

@@ -56,6 +56,7 @@ Widget buildHeader(BuildContext context, {
     void Function()? onPressed,
     required Widget icon,
     required Widget addButton,
+    required String balance,
   }) {
     final buttonHeight = headerHeight / 2;
 
@@ -95,7 +96,7 @@ Widget buildHeader(BuildContext context, {
           child: Row(children: [
             SizedBox(width: iconHeight, height: iconHeight, child: icon),
             SizedBox(width: 4),
-            Expanded(child: Center(child: FittedBox(child: Text('data', style: TextStyle(color: Colors.white, fontSize: 14))))),
+            Expanded(child: Center(child: FittedBox(child: Text(balance, style: TextStyle(color: Colors.white, fontSize: 14))))),
             SizedBox(
               width: buttonHeight,
               height: iconHeight,
@@ -111,17 +112,19 @@ Widget buildHeader(BuildContext context, {
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       // SizedBox(width: padding),
-      Expanded(child: buildButton(
-        onPressed: () {},
+      Expanded(child: Obx(() => buildButton(
+        onPressed: () => Get.toNamed(MyRoutes.rechargeView),
         icon: MyIcons.headerStone,
         addButton: MyIcons.headerAdd2,
-      )),
+          balance: '${UserController.to.userInfo.value.balance}'
+      ))),
       SizedBox(width: 4),
-      Expanded(child: buildButton(
-        onPressed: () {},
-        icon: MyIcons.headerCard,
-        addButton: MyIcons.headerAdd1,
-      )),
+      Expanded(child: Obx(() => buildButton(
+          onPressed: () {},
+          icon: MyIcons.headerCard,
+          addButton: MyIcons.headerAdd1,
+          balance: '${UserController.to.userInfo.value.tickets}'
+      ))),
       SizedBox(width: padding),
     ],
   );

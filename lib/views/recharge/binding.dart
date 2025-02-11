@@ -2,9 +2,9 @@ import 'package:get/get.dart';
 
 import 'controller.dart';
 
-class BagBinding extends Bindings {
+class RechargeBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<BagController>(() => BagController());
+    Get.lazyPut<RechargeController>(() => RechargeController());
   }
 }

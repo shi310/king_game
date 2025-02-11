@@ -9,4 +9,6 @@ class MyRoutes {
   static const applicationView = '/application_view';
   // bag
   static const bagView = '/bag_view';
+  // 充值
+  static const rechargeView = '/recharge_view';
 }

@@ -41,5 +41,12 @@ class MyPages {
       page: () => const BagView(),
       binding: BagBinding(),
     ),
+
+    // 充值页面
+    GetPage(
+      name: MyRoutes.rechargeView,
+      page: () => const RechargeView(),
+      binding: RechargeBinding(),
+    ),
   ];
 }

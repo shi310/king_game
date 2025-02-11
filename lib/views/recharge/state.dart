@@ -1,8 +1,5 @@
-import 'package:get/get.dart';
-import 'package:king_game/common/common.dart';
+class RechargeState {
+  String title = 'Recharge View';
 
-class BagState {
-  String title = 'Bag View';
-
-  final bagItems = BagItemListModel.empty().obs;
+  final amounts = [10, 20, 50, 100, 500, 1000];
 }

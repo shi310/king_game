@@ -21,7 +21,18 @@ class BagView extends GetView<BagController> {
           // color: Color(0xFF36374C),
         ),
         child: Column(children: [
-          buildHeaderWithBack(context),
+          buildHeaderWithBack(context, title:  buildBack(child: Row(children: [
+            SizedBox(width: 20),
+            SizedBox(height: 30, child: MyIcons.bag),
+            SizedBox(width: 8),
+            MyStrokeText(
+              text: Lang.bag.tr,
+              fontSize: 18,
+              strokeWidth: 4,
+              dy: -3,
+              fontFamily: 'Sans',
+            )
+          ]))),
           Expanded(child: _buildBagItems(context)),
         ]),
       ),

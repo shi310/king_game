@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:king_game/common/common.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'controller.dart';
 
-class BagView extends GetView<BagController> {
-  const BagView({super.key});
+class RechargeView extends GetView<RechargeController> {
+  const RechargeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,77 +22,77 @@ class BagView extends GetView<BagController> {
           // color: Color(0xFF36374C),
         ),
         child: Column(children: [
-          buildHeaderWithBack(context),
-          Expanded(child: _buildBagItems(context)),
+          buildHeaderWithBack(context, title:  buildBack(child: Row(children: [
+            SizedBox(width: 20),
+            SizedBox(height: 30, child: MyIcons.storeTitleIcon),
+            SizedBox(width: 8),
+            MyStrokeText(
+              text: Lang.rechargeViewTitle.tr,
+              fontSize: 18,
+              strokeWidth: 4,
+              dy: -3,
+              fontFamily: 'Sans',
+            )
+          ]))),
+          Expanded(child: _buildContent(context)),
         ]),
       ),
     );
   }
 
-  Widget _buildBagItems(BuildContext context) {
-    return Obx(() => GridView.count(
-        padding: EdgeInsets.all(10),
+  Widget _buildContent(BuildContext context) {
+    return Padding(padding: EdgeInsets.all(10), child: Column(children: [
+      SizedBox(height: 8),
+
+      Stack(clipBehavior: Clip.none, children: [
+        MyIcons.storeBannerBackground,
+        Positioned(left: 24, child: Column(children: [
+          SizedBox(height: 60, child: MyIcons.storeBanner1),
+          MyStrokeText(
+            text: Lang.rechargeViewBuy.tr,
+            fontSize: 18,
+            fontFamily: 'Sans',
+            strokeWidth: 4,
+            dy: -3,
+          )
+        ])),
+      ]),
+
+      Expanded(child: GridView.count(
+        padding: EdgeInsets.only(top: 16, left: 4, right: 4),
         crossAxisCount: 3,
         mainAxisSpacing: 8.0,
         crossAxisSpacing: 8.0,
-        childAspectRatio: 223 / 354,
-        children: controller.state.bagItems.value.list.asMap().entries.map((item) {
-          int level = 1;
-
-          if (item.value.type == 's+') {
-            level = 2;
-          } else if (item.value.type == 'S++') {
-            level = 3;
-          }
-
-          final skinLevel = SizedBox(width: 40, child: MyIcons.storeSkinLevel(level));
-
-          final image = MyIcons.storeSkin(item.value.url);
-          final name = MyStrokeText(
-            text: item.value.name,
-            strokeWidth: 3,
-            dy: 0,
-            dx: 0,
-            fontSize: 13,
-          );
-          final price = MyStrokeText(
-            text: '${item.value.price}${Lang.points.tr}',
-            fontFamily: 'Sans',
-            fontSize: 14,
-          );
-
-          final body = Stack(children: [
-            image,
-
-            Positioned(
-              top: 4,
-              left: 8,
-              right: 8,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: FittedBox(child: name),
-              ),
-            ),
-
-            Positioned(
-              bottom: 14,
-              right: 10,
-              left: 46,
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: FittedBox(child: price),
-              ),
-            ),
-
-            Positioned(
-              bottom: 8,
-              left: 4,
-              child: skinLevel,
-            ),
+        childAspectRatio: 223 / 330,
+        children: controller.state.amounts.asMap().entries.map((item) {
+          final child = Stack(children: [
+            MyIcons.storeBuy(item.value),
+            Positioned(bottom: 10, right: 10, left: 10, child: Center(child: FittedBox(child: MyStrokeText(
+              text: '${Lang.rechargeViewMoney.tr}  ${item.value * UserController.to.userInfo.value.vndRate ~/ 1000}K',
+              fontSize: 18,
+              fontFamily: 'Sans',
+              strokeWidth: 4,
+              dy: 3,
+            ))))
           ]);
 
-          return MyButton(onPressed: () {}, child: body);
+          return MyButton(onPressed: () async {
+            showMyLoading();
+            await UserController.to.myDio?.post(MyApi.user.payOrder,
+              data: {
+                "bizAmt": item.value * UserController.to.userInfo.value.vndRate,
+              },
+              onSuccess: (code, msg, data) async {
+                final url =  Uri.parse('$data');
+                if (!await launchUrl(url)) {
+                  MyAlert.showSnack(child: Text('Could not launch $url', style: TextStyle(color: Colors.white)));
+                }
+              },
+            );
+            hideMyLoading();
+          }, child: child);
         }).toList()
-    ));
+      )),
+    ]));
   }
 }

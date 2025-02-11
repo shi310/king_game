@@ -40,6 +40,11 @@ class MyIcons {
 
   static MyAssets storeSkinLevel(int index) => MyAssets(name: 'store_skin_level_$index', style: MyAssetStyle.png);
   static MyAssets storeSkin(String index) => MyAssets(name: 'store_skin_$index', style: MyAssetStyle.png);
+  static MyAssets get storeBanner1 => MyAssets(name:'store_banner_1', style: MyAssetStyle.png);
+  static MyAssets get storeBannerBackground => MyAssets(name:'store_banner_background', style: MyAssetStyle.png);
+  static MyAssets storeBuy(int index) => MyAssets(name:'store_buy_$index', style: MyAssetStyle.png);
+  static MyAssets get storeItemBackground => MyAssets(name:'store_item_background', style: MyAssetStyle.png);
+  static MyAssets get storeTitleIcon => MyAssets(name:'store_title_icon', style: MyAssetStyle.png);
 
   static MyAssets get meButtonTopLeft => MyAssets(name:'me_button_top_left', style: MyAssetStyle.png);
   static MyAssets get meButtonTopRight => MyAssets(name:'me_button_top_right', style: MyAssetStyle.png);
@@ -102,5 +107,4 @@ class MyIcons {
 
   static MyAssets get back => MyAssets(name: 'back', style: MyAssetStyle.png);
   static MyAssets get bag => MyAssets(name: 'bag', style: MyAssetStyle.png);
-
 }
