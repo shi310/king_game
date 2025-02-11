@@ -151,7 +151,7 @@ Widget _buildSignInWinItem({
         Positioned(right: -4, top: -4, child: Center(child: SizedBox(height: 24, child: MyIcons.langChecked)))
     ]),
     SizedBox(height: 10),
-    (int.parse(index) - signInDays > 0 && int.parse(index) - signInDays < 7) || (signInDays > 21 && int.parse(index) - signInDays < 9) || int.parse(index) == signInDays
+    signInData.continuous.isNotEmpty && (signInData.continuous[index] - signInDays > 0 && signInData.continuous[index] - signInDays < 7) || (signInDays > 21 && signInData.continuous[index] - signInDays < 9) || signInData.continuous[index] == signInDays
       ? SizedBox(height: 24, child: MyIcons.signInWinDay)
       : SizedBox(height: 24, child: MyIcons.signInDay),
     SizedBox(height: 10),
@@ -167,7 +167,7 @@ Widget _buildSignInWinItem({
         SizedBox(width: 10),
         Expanded(child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           SizedBox(width: 12, child: MyIcons.signInNote),
-          Flexible(child: FittedBox(child: Center(child: Text(' $index ${Lang.signInAlertDay.tr}', style: TextStyle(color: Colors.white, fontSize: 10)))))
+          Flexible(child: FittedBox(child: Center(child: Text('  $index${Lang.signInAlertDay.tr}', style: TextStyle(color: Colors.white, fontSize: 10)))))
         ])),
         SizedBox(width: 10),
       ]),
