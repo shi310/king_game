@@ -72,4 +72,22 @@ abstract class Lang {
   static const rechargeViewTitle = "recharge_view_title";
   static const rechargeViewBuy = "recharge_view_buy";
   static const rechargeViewMoney = "recharge_view_money";
+
+  static const exchangeTitle = "exchange_title";
+  static const exchangeHint = "exchange_hint";
+  static const exchangeHave = "exchange_have";
+  static const exchangeSureDo = "exchange_sure_do";
+  static const exchangeAmountError = "exchange_amount_error";
+
+  static const userInfoTitle = "user_info_title";
+  static const userInfoRealName = "user_info_real_name";
+  static const userInfoBank = "user_info_bank";
+  static const userInfoNickNameTitle = "user_info_nick_name_title";
+  static const userInfoBankTitle = "user_info_bank_title";
+  static const userInfoNickNameHint = "user_info_nick_name_hint";
+  static const userInfoBankNameHint = "user_info_bank_name_hint";
+  static const userInfoBankNumberHint = "user_info_bank_number_hint";
+  static const userInfoRealNameHint = "user_info_real_name_hint";
+  static const userInfoInputHint = "user_info_input_hint";
+  static const userInfoBankNameChoice = "user_info_bank_name_choice";
 }

@@ -8,7 +8,7 @@ import 'package:king_game/views/application/store/controller.dart';
 part 'lang_keys.dart';
 part 'key_en.dart';
 part 'key_zh.dart';
-part 'key_vn.dart';
+part 'key_vi.dart';
 
 class MyLang extends Translations {
   static final defaultMode = MyLangMode.zh.toLocale();
@@ -23,13 +23,13 @@ class MyLang extends Translations {
   static final supportedLocales = [
     MyLangMode.zh,
     MyLangMode.en,
-    MyLangMode.vn,
+    MyLangMode.vi,
   ].map((mode) => mode.toLocale()).toList();
 
   final _keys = {
     MyLangMode.zh.toLocaleTag(): zh,
     MyLangMode.en.toLocaleTag(): en,
-    MyLangMode.vn.toLocaleTag(): vn,
+    MyLangMode.vi.toLocaleTag(): vi,
   };
 
   @override
@@ -44,7 +44,7 @@ class MyLang extends Translations {
     MyCache.putFile('locale', mode.toString(), maxAge: MyConfig.time.cachePersistence);
     if (Get.isRegistered<StoreController>()) {
       final storeController = Get.find<StoreController>();
-      await storeController.state.skins.value.update(language: mode.toString());
+      await storeController.state.skins.value.update();
       storeController.state.skins.refresh();
     }
     log('当前APP语言：${mode.toLocale()}');
@@ -97,7 +97,7 @@ class SystemLocaleObserver with WidgetsBindingObserver {
 enum MyLangMode {
   en('en'),
   zh('zh'),
-  vn('vn');
+  vi('vi');
 
   final String mode;
 
@@ -109,8 +109,8 @@ enum MyLangMode {
         return MyLangMode.en;
       case 'zh':
         return MyLangMode.zh;
-      case 'vn':
-        return MyLangMode.vn;
+      case 'vi':
+        return MyLangMode.vi;
       default:
         return MyLangMode.zh;
     }
@@ -123,8 +123,8 @@ enum MyLangMode {
         return MyLangMode.zh;
       case 'en':
         return MyLangMode.en;
-      case 'vn':
-        return MyLangMode.vn;
+      case 'vi':
+        return MyLangMode.vi;
       default:
         return MyLangMode.zh;
     }
@@ -136,7 +136,7 @@ enum MyLangMode {
         return const Locale('en', 'US');
       case MyLangMode.zh:
         return const Locale('zh', 'CN');
-      case MyLangMode.vn:
+      case MyLangMode.vi:
         return const Locale('vi', 'VN');
     }
   }

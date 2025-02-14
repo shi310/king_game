@@ -26,4 +26,8 @@ class MineController extends GetxController {
   void onRecharge() {
     Get.toNamed(MyRoutes.rechargeView);
   }
+
+  void onExchange() {
+    buildExchangeDialog();
+  }
 }

@@ -156,16 +156,17 @@ Widget _buildBottom({
   return Container(
     decoration: BoxDecoration(
       color: Color(0xFF64AAF1),
+      borderRadius: BorderRadius.only(bottomRight: Radius.circular(8), bottomLeft: Radius.circular(8))
     ),
     child: Column(children: [
       Stack(clipBehavior: Clip.none, children: [
-        SizedBox(height: 32, width: double.infinity),
-        Positioned(top: -16, left: 20, right: 20, child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        SizedBox(height: 40, width: double.infinity),
+        Positioned(top: -20, left: 20, right: 20, child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
           MyButton(onPressed: friendsIndex.value == 0 ? null : () {
             friendsIndex.value = 0;
             friendsIndex.refresh();
           }, child: Stack(children: [
-            SizedBox(height: 36, child: Obx(() => friendsIndex.value == 0 ? MyIcons.inviteButton1 : MyIcons.inviteButton0)),
+            SizedBox(height: 40, child: Obx(() => friendsIndex.value == 0 ? MyIcons.inviteButton1 : MyIcons.inviteButton0)),
             Positioned.fill(left: 10, right: 10, child: Center(child: FittedBox(child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               SizedBox(height: 16, child: MyIcons.inviteRegister),
               SizedBox(width: 4),
@@ -177,7 +178,7 @@ Widget _buildBottom({
             friendsIndex.value = 1;
             friendsIndex.refresh();
           }, child: Stack(children: [
-            SizedBox(height: 36, child: Obx(() => friendsIndex.value == 1 ? MyIcons.inviteButton1 : MyIcons.inviteButton0)),
+            SizedBox(height: 40, child: Obx(() => friendsIndex.value == 1 ? MyIcons.inviteButton1 : MyIcons.inviteButton0)),
             Positioned.fill(left: 10, right: 10, child: Center(child: FittedBox(child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               SizedBox(height: 16, child: MyIcons.inviteRecharged),
               SizedBox(width: 4),

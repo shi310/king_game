@@ -71,4 +71,22 @@ const Map<String, String> zh = {
   Lang.rechargeViewTitle: '点券商店',
   Lang.rechargeViewBuy: '购买点券',
   Lang.rechargeViewMoney: '¥',
+
+  Lang.exchangeTitle: '兑换抽奖券',
+  Lang.exchangeHint: '请输入抽奖券数量',
+  Lang.exchangeHave: '拥有',
+  Lang.exchangeSureDo: '确认兑换',
+  Lang.exchangeAmountError: '请输入正确的兑换数量',
+
+  Lang.userInfoTitle: '个人信息',
+  Lang.userInfoRealName: '账户姓名',
+  Lang.userInfoBank: '银行卡',
+  Lang.userInfoNickNameTitle: '信息',
+  Lang.userInfoBankTitle: '银行卡',
+  Lang.userInfoNickNameHint: '请输入昵称',
+  Lang.userInfoBankNameHint: '开户银行',
+  Lang.userInfoBankNumberHint: '银行卡号',
+  Lang.userInfoRealNameHint: '账户名称',
+  Lang.userInfoInputHint: '未绑定',
+  Lang.userInfoBankNameChoice: '请选择银行',
 };

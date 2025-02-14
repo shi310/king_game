@@ -22,7 +22,7 @@ class RechargeView extends GetView<RechargeController> {
           // color: Color(0xFF36374C),
         ),
         child: Column(children: [
-          buildHeaderWithBack(context, title:  buildBack(child: Row(children: [
+          buildHeader(context, bottom:  buildBack(child: Row(children: [
             SizedBox(width: 20),
             SizedBox(height: 30, child: MyIcons.storeTitleIcon),
             SizedBox(width: 8),

@@ -21,7 +21,7 @@ class BagView extends GetView<BagController> {
           // color: Color(0xFF36374C),
         ),
         child: Column(children: [
-          buildHeaderWithBack(context, title:  buildBack(child: Row(children: [
+          buildHeader(context, bottom:  buildBack(child: Row(children: [
             SizedBox(width: 20),
             SizedBox(height: 30, child: MyIcons.bag),
             SizedBox(width: 8),
@@ -58,6 +58,7 @@ class BagView extends GetView<BagController> {
           final skinLevel = SizedBox(width: 40, child: MyIcons.storeSkinLevel(level));
 
           final image = MyIcons.storeSkin(item.value.url);
+
           final name = MyStrokeText(
             text: item.value.name,
             strokeWidth: 3,
@@ -66,7 +67,7 @@ class BagView extends GetView<BagController> {
             fontSize: 13,
           );
           final price = MyStrokeText(
-            text: '${item.value.price}${Lang.points.tr}',
+            text: 'x1',
             fontFamily: 'Sans',
             fontSize: 14,
           );

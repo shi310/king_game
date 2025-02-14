@@ -72,6 +72,9 @@ dependencies:
   # 打开外部浏览器
   url_launcher: ^6.3.1
 
+  # 键盘隐藏
+  flutter_keyboard_visibility: ^6.0.0
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8

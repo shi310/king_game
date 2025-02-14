@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:king_game/common/common.dart';
 
 import 'state.dart';
 
@@ -14,9 +13,7 @@ class StoreController extends GetxController {
   }
 
   Future<void> getSkins() async {
-    await state.skins.value.update(
-      language: UserController.to.localeString,
-    );
+    await state.skins.value.update();
     state.skins.refresh();
   }
 }

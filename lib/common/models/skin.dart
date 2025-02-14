@@ -17,9 +17,7 @@ class SkinListModel {
     'list': List<dynamic>.from(list.map((x) => x.toJson())),
   };
 
-  Future<void> update({
-    required String language,
-  }) async {
+  Future<void> update() async {
     return UserController.to.myDio?.post<SkinListModel>(MyApi.user.listAllSkin,
       onSuccess: (code, msg, data) {
         list = data.list;
@@ -27,7 +25,7 @@ class SkinListModel {
       onError: (error) {
       },
       data: {
-        "language": language,
+        "language": UserController.to.localeString,
       },
       onModel: (m) => SkinListModel.fromJson(m),
     );
@@ -52,11 +50,13 @@ class BagItemListModel {
   };
 
   Future<void> update() async {
-    return UserController.to.myDio?.post<SkinListModel>(MyApi.user.getBag,
+    return UserController.to.myDio?.get<SkinListModel>(MyApi.user.getBag,
       onSuccess: (code, msg, data) {
         list = data.list;
       },
-      onError: (error) {
+      onError: (error) {},
+      data: {
+        "language": UserController.to.localeString,
       },
       onModel: (m) => SkinListModel.fromJson(m),
     );

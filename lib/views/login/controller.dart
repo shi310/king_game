@@ -49,11 +49,10 @@ class LoginController extends GetxController {
         timer = Timer.periodic(Duration(seconds: 1), (t) {
           if (state.captchaCountdown > 1) {
             state.captchaCountdown--;
-            state.captchaButtonText = '${state.captchaCountdown}';
           } else {
             t.cancel();
             timer = null;
-            state.captchaButtonText = Lang.loginViewSendCode.tr;
+            state.captchaCountdown = 60;
           }
         });
       },

@@ -3,9 +3,12 @@ import 'package:get/get.dart';
 import 'package:king_game/common/common.dart';
 
 void buildSignInDialog() {
-  UserController.to.signInData.value.update().then((value) {
-    UserController.to.signInData.refresh();
+  final signInData = SignInModel.empty().obs;
+
+  signInData.value.update().then((value) {
+    signInData.refresh();
   });
+
   showMyWidgetDialog(
     showBottom: true,
     header: Row(children: [
@@ -19,21 +22,21 @@ void buildSignInDialog() {
         fontFamily: 'Sans',
       ),
     ],),
-    body: SingleChildScrollView(child: Container(
+    body: Container(
       height: 570,
       color: Color(0xFF213F98),
       child: Column(children: [
-        Obx(() => _buildSignInWin(signInData: UserController.to.signInData.value)),
-        Obx(() => _buildCalendar(signInData: UserController.to.signInData.value)),
-      ],),
-    ),),
+        Obx(() => _buildSignInWin(signInData: signInData.value)),
+        Obx(() => _buildCalendar(signInData: signInData.value)),
+      ]),
+    ),
     footer: Container(
       // height: 120,
       // width: double.infinity,
       // color: Colors.green,
       padding: EdgeInsets.fromLTRB(16, 12, 16, 12),
       child: Row(children: [
-        Expanded(child: MyButton(onPressed: _onSignIn, child: LayoutBuilder(builder: (context, container) {
+        Expanded(child: MyButton(onPressed: () => _onSignIn(signInData), child: LayoutBuilder(builder: (context, container) {
           return buildButton(
             context: context,
             height: 44,
@@ -49,7 +52,7 @@ void buildSignInDialog() {
           );
         }))),
         SizedBox(width: 10),
-        Expanded(child: MyButton(onPressed: _onSignInAgain, child: LayoutBuilder(builder: (context, container) {
+        Expanded(child: MyButton(onPressed: () => _onSignInAgain(signInData), child: LayoutBuilder(builder: (context, container) {
           return buildButton(
             context: context,
             height: 44,
@@ -151,7 +154,7 @@ Widget _buildSignInWinItem({
         Positioned(right: -4, top: -4, child: Center(child: SizedBox(height: 24, child: MyIcons.langChecked)))
     ]),
     SizedBox(height: 10),
-    signInData.continuous.isNotEmpty && (signInData.continuous[index] - signInDays > 0 && signInData.continuous[index] - signInDays < 7) || (signInDays > 21 && signInData.continuous[index] - signInDays < 9) || signInData.continuous[index] == signInDays
+    int.parse(index) - signInDays > 0 && (int.parse(index) - signInDays <= 7 || (signInDays > 20 && int.parse(index) - signInDays <= 9))
       ? SizedBox(height: 24, child: MyIcons.signInWinDay)
       : SizedBox(height: 24, child: MyIcons.signInDay),
     SizedBox(height: 10),
@@ -247,18 +250,18 @@ Widget _buildCalendar({
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         SizedBox(height: 16, child: MyIcons.signInMiss),
         SizedBox(width: 8),
-        Obx(() => Text(Lang.signInAlertMissed.trArgs(['${UserController.to.signInData.value.omissions}']), style: TextStyle(color: Colors.white, fontSize: 12))),
+        Text(Lang.signInAlertMissed.trArgs(['${signInData.omissions}']), style: TextStyle(color: Colors.white, fontSize: 12)),
       ]),
     ],
   ));
 }
 
-Future<void> _onSignIn() async {
+Future<void> _onSignIn(Rx<SignInModel> signInData) async {
   showMyLoading();
   await UserController.to.myDio?.post(MyApi.signIn.signIn,
     onSuccess: (code, msg, data) async {
-      await UserController.to.signInData.value.update();
-      UserController.to.signInData.refresh();
+      await signInData.value.update();
+      signInData.refresh();
       MyAlert.showSnack(child: Text(msg, style: TextStyle(color: Colors.white)));
     },
     onError: (error) {
@@ -268,12 +271,12 @@ Future<void> _onSignIn() async {
   hideMyLoading();
 }
 
-Future<void> _onSignInAgain() async {
+Future<void> _onSignInAgain(Rx<SignInModel> signInData) async {
   showMyLoading();
   await UserController.to.myDio?.post(MyApi.signIn.signInRepair,
     onSuccess: (code, msg, data) async {
-      await UserController.to.signInData.value.update();
-      UserController.to.signInData.refresh();
+      await signInData.value.update();
+      signInData.refresh();
       MyAlert.showSnack(child: Text(msg, style: TextStyle(color: Colors.white)));
     },
     onError: (error) {

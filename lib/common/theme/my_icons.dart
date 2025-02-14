@@ -107,4 +107,7 @@ class MyIcons {
 
   static MyAssets get back => MyAssets(name: 'back', style: MyAssetStyle.png);
   static MyAssets get bag => MyAssets(name: 'bag', style: MyAssetStyle.png);
+  static MyAssets get editCancel => MyAssets(name: 'edit_cancel', style: MyAssetStyle.png);
+  static MyAssets get editSure => MyAssets(name: 'edit_sure', style: MyAssetStyle.png);
+  static MyAssets get editUserInfo => MyAssets(name: 'edit_user_info', style: MyAssetStyle.png);
 }

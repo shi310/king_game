@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
 import 'package:king_game/common/common.dart';
 
@@ -26,26 +27,24 @@ class LoginView extends GetView<LoginController> {
         ]),
 
         Column(children: [
-          _buildTextField(
-            context: context,
+          buildTextField(
             hintText: Lang.loginViewAccount.tr,
             controller: controller.accountController,
             margin: EdgeInsets.symmetric(horizontal: paddingHorizontal / 2),
             height: 55,
-            prefixIcon: SizedBox(width: 60, height: 60, child: Center(child: SizedBox(width: 30, height: 30, child: MyIcons.loginPhone,),)),
+            prefixIcon: SizedBox(width: 60, height: 60, child: Center(child: SizedBox(width: 30, height: 30, child: MyIcons.loginPhone))),
           ),
 
           const SizedBox(height: 10),
 
-          _buildTextField(
-            context: context,
+          buildTextField(
             hintText: Lang.loginViewEmail.tr,
             controller: controller.codeController,
             margin: EdgeInsets.symmetric(horizontal: paddingHorizontal / 2),
             height: 55,
             prefixIcon: SizedBox(width: 60, height: 60, child: Center(child: SizedBox(width: 30, height: 30, child: MyIcons.loginEmail,),)),
             suffixIcon: Obx(() => TextButton(
-              onPressed: controller.state.captchaButtonText == Lang.loginViewSendCode.tr ? controller.sendCode : null,
+              onPressed: controller.state.captchaCountdown >= 60 ? controller.sendCode : null,
               style: ButtonStyle(
                 shape: WidgetStateProperty.all(
                   RoundedRectangleBorder(
@@ -53,7 +52,7 @@ class LoginView extends GetView<LoginController> {
                   ),
                 ),
               ),
-              child: Text(controller.state.captchaButtonText, style: TextStyle(color: Color(0XFF397DEA))),
+              child: Text(controller.state.captchaCountdown >= 60 ? Lang.loginViewSendCode.tr : '${controller.state.captchaCountdown}', style: TextStyle(color: Color(0XFF397DEA))),
             )),
           ),
 
@@ -127,7 +126,7 @@ class LoginView extends GetView<LoginController> {
       ],
     );
 
-    return Stack(alignment: AlignmentDirectional.topCenter, children: [
+    return KeyboardDismissOnTap(child: Stack(alignment: AlignmentDirectional.topCenter, children: [
       Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -142,59 +141,10 @@ class LoginView extends GetView<LoginController> {
         appBar: AppBar(backgroundColor: Colors.black.withAlpha(0),),
         body: body,
       ),
-    ]);
+    ]));
   }
 
-  Widget _buildTextField({
-    required BuildContext context,
-    required String hintText,
-    required TextEditingController controller,
-    EdgeInsetsGeometry? margin,
-    Widget? prefixIcon,
-    Widget? suffixIcon,
-    double? height,
-  }) {
-    final borderRadius = BorderRadius.circular(10);
 
-    final textField = TextField(
-      controller: controller,
-      textAlignVertical: TextAlignVertical.center,
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.zero,
-        hintText: hintText,
-        border: InputBorder.none,
-        prefixIcon: prefixIcon,
-        suffixIcon: suffixIcon,
-        hintStyle: TextStyle(
-          color: const Color(0xFF000000).withValues(alpha: 0.3),
-          fontWeight: FontWeight.w600,
-          fontSize: 14,
-          fontFamily: 'PingFang SC',
-        ),
-      ),
-    );
-
-    return Container(
-      margin: margin,
-      height: height,
-      decoration: BoxDecoration(
-        color: Color(0XFFDDDDDD),
-        borderRadius: borderRadius,
-        border: Border.all(color: Colors.black, width: 2),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: LayoutBuilder(builder: (context, constraints) => Column(children: [
-        Container(
-          height: constraints.maxHeight - 4,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: borderRadius * 0.8,
-          ),
-          child: textField,
-        )
-      ],),),
-    );
-  }
 
   Widget _buildButton({
     required BuildContext context,
@@ -227,7 +177,7 @@ class LoginView extends GetView<LoginController> {
             color: Colors.white,
             borderRadius: borderRadius * 0.8,
           ),
-          child: SingleChildScrollView(padding: EdgeInsets.fromLTRB(4, 4, 4, 0), child: Container(
+          child: Padding(padding: EdgeInsets.fromLTRB(4, 4, 4, 0), child: Container(
             alignment: Alignment.topLeft,
             width: constraints.maxWidth,
             height: (constraints.maxHeight - 4) / 2,

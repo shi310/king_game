@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:king_game/common/common.dart';
+import 'package:get/get.dart';
 
 class MyButton extends StatefulWidget {
   final Widget child;
@@ -48,6 +49,8 @@ class CustomButtonState extends State<MyButton> {
 
   void _onPressed() {
     if (!_isClickable || widget.onPressed == null) return;
+
+    Get.focusScope?.unfocus();
 
     MyAudio.play(MyAudioPath.click);
     widget.onPressed?.call();

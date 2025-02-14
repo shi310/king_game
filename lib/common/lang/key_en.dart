@@ -71,4 +71,22 @@ const Map<String, String> en = {
   Lang.rechargeViewTitle: 'Token Store',
   Lang.rechargeViewBuy: 'Buy Tokens',
   Lang.rechargeViewMoney: '\$',
+
+  Lang.exchangeTitle: 'Redeem Lottery Tickets',
+  Lang.exchangeHint: 'Please enter the number of raffle tickets',
+  Lang.exchangeHave: 'Owned',
+  Lang.exchangeSureDo: 'Confirm Redemption',
+  Lang.exchangeAmountError: 'Enter a valid amount',
+
+  Lang.userInfoTitle: 'Profile',
+  Lang.userInfoRealName: 'Account Name',
+  Lang.userInfoBank: 'Bank Card',
+  Lang.userInfoNickNameTitle: 'Info',
+  Lang.userInfoBankTitle: 'Bank Card',
+  Lang.userInfoNickNameHint: 'Enter Nickname',
+  Lang.userInfoBankNameHint: 'Bank Name',
+  Lang.userInfoBankNumberHint: 'Bank Number',
+  Lang.userInfoRealNameHint: 'Account Name',
+  Lang.userInfoInputHint: 'Not Bound',
+  Lang.userInfoBankNameChoice: 'Select Bank',
 };

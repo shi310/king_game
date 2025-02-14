@@ -68,7 +68,7 @@ class MineView extends StatelessWidget {
       )),
       SizedBox(width: 2),
       Expanded(child: buildButton(
-        onPressed: () {},
+        onPressed: controller.onExchange,
         context: context,
         shadowColor: Color(0xFF944600),
         colors: [Color(0xFFF96312), Color(0xFFF96312)],

@@ -43,7 +43,7 @@ Widget buildButton({
           width: constraints.maxWidth,
           height: (constraints.maxHeight - 4) / 2,
           decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.4),
+              color: Colors.white.withValues(alpha: 0.3),
               borderRadius: BorderRadius.only(
                 topLeft: borderRadius.copyWith().topLeft,
                 topRight: borderRadius.copyWith().topRight,
@@ -55,15 +55,15 @@ Widget buildButton({
             height: 8,
             width: 8,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Colors.white.withValues(alpha: 0.8),
               shape: BoxShape.circle,
             ),
           ),
-        ),),
+        )),
         // child: textField,
       ),
       Positioned.fill( child: Center(child: child))
-    ],),),
+    ])),
   );
 
   return MyButton(onPressed: onPressed, child: body);

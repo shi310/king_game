@@ -36,9 +36,6 @@ class UserController extends GetxService with WidgetsBindingObserver {
   bool get isOpenAudio => _isOpenAudio.value;
   set isOpenAudio(bool value) => _isOpenAudio.value = value;
 
-  // 签到信息
-  final signInData = SignInModel.empty().obs;
-
   @override
   void onInit() async {
     super.onInit();

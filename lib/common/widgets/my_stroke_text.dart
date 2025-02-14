@@ -61,6 +61,7 @@ class MyStrokeText extends StatelessWidget {
           maxLines: maxLines,
           textAlign: textAlign,
           style: TextStyle(
+            letterSpacing: letterSpacing,
             fontFamily: fontFamily,
             fontSize: fontSize,
             fontWeight: fontWeight,

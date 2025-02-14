@@ -13,6 +13,4 @@ class _Base {
   final String logout = '/basic/logout';
   // 刷新token
   final String refreshToken = '/basic/refresh';
-
-
 }

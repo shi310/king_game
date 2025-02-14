@@ -6,6 +6,7 @@ import 'package:king_game/common/common.dart';
 Widget buildHeader(BuildContext context, {
   double headerHeight = 55.0,
   bool isShowMarker = false,
+  Widget? bottom,
 }) {
   final double padding = 10.0;
 
@@ -16,40 +17,44 @@ Widget buildHeader(BuildContext context, {
     ],
   );
 
-  final leftUserInfo = Row(
-    crossAxisAlignment: CrossAxisAlignment.end,
-    children: [
-      SizedBox(
-        width: headerHeight,
-        height: headerHeight,
-        child: Stack(children: [
-          MyIcons.headerAvatarBackground,
-          Positioned.fill(child: Padding(padding: EdgeInsets.fromLTRB(2, 2, 2, 4), child: MyIcons.headerAvatar)),
-        ]),
-      ),
+  final leftUserInfo = MyButton(
+    isDebounce: false,
+    onPressed: () => buildUserInfoDialog(),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        SizedBox(
+          width: headerHeight,
+          height: headerHeight,
+          child: Stack(children: [
+            MyIcons.headerAvatarBackground,
+            Positioned.fill(child: Padding(padding: EdgeInsets.fromLTRB(2, 2, 2, 4), child: MyIcons.headerAvatar)),
+          ]),
+        ),
 
-      const SizedBox(width: 6),
+        const SizedBox(width: 6),
 
-      Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.end, children: [
-        Obx(() => MyStrokeText(
-          text: UserController.to.userInfo.value.nickname,
-          fontFamily: 'Sans',
-          overflow: TextOverflow.clip,
-          maxLines: 1,
-          fontSize: 14,
-          strokeWidth: 3,
-          dy: 4,
-        )),
-        Obx(() => Text('ID: ${UserController.to.userInfo.value.id}',
-          maxLines: 1,
-          style: TextStyle(color: Color(0xFFF8D21C), fontSize: 14),
-          overflow: TextOverflow.clip,
-        )),
-        // const SizedBox(height: 3),
-      ])),
+        Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.end, children: [
+          Obx(() => MyStrokeText(
+            text: UserController.to.userInfo.value.nickname,
+            fontFamily: 'Sans',
+            overflow: TextOverflow.clip,
+            maxLines: 1,
+            fontSize: 14,
+            strokeWidth: 3,
+            dy: 4,
+          )),
+          Obx(() => Text('ID: ${UserController.to.userInfo.value.id}',
+            maxLines: 1,
+            style: TextStyle(color: Color(0xFFF8D21C), fontSize: 14),
+            overflow: TextOverflow.clip,
+          )),
+          // const SizedBox(height: 3),
+        ])),
 
-      const SizedBox(width: 48),
-    ],
+        const SizedBox(width: 48),
+      ],
+    ),
   );
 
   Widget buildButton({
@@ -120,7 +125,7 @@ Widget buildHeader(BuildContext context, {
       ))),
       SizedBox(width: 4),
       Expanded(child: Obx(() => buildButton(
-          onPressed: () {},
+          onPressed: () => buildExchangeDialog(),
           icon: MyIcons.headerCard,
           addButton: MyIcons.headerAdd1,
           balance: '${UserController.to.userInfo.value.tickets}'
@@ -178,6 +183,10 @@ Widget buildHeader(BuildContext context, {
           height: headerHeight + padding,
           child: body,
         ),
+        if (bottom!= null)
+          SizedBox(height: 10),
+        if (bottom!= null)
+          bottom,
       ],
     )),
   );

@@ -7,8 +7,6 @@ class _User {
   final String updateInfo = '/user/update';
   // 钻石兑换抽奖券
   final String exchangeDiamond = '/user/exchange';
-  // 获取银行卡信息
-  final String getBankCard = '/user/updateBank';
   // 获取商城信息
   final String listAllSkin = '/user/listAllSkin';
   // 兑换皮肤
@@ -21,4 +19,8 @@ class _User {
   final String getBag = '/user/bag';
   // 支付下单
   final String payOrder = '/user/payOrder';
+  // 获取银行列表
+  final String getBankList = '/user/bankList';
+  // 修改银行卡信息
+  final String updateBankInfo = '/user/updateBank';
 }

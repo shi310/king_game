@@ -1,6 +1,6 @@
 part of 'my_lang.dart';
 
-const Map<String, String> vn = {
+const Map<String, String> vi = {
   Lang.loginViewAccount: 'Số điện thoại',
   Lang.loginViewEmail: 'Mã',
   Lang.loginViewFacebook: 'Facebook',
@@ -71,4 +71,22 @@ const Map<String, String> vn = {
   Lang.rechargeViewTitle: 'Cửa hàng điểm',
   Lang.rechargeViewBuy: 'Mua điểm',
   Lang.rechargeViewMoney: '₫',
+
+  Lang.exchangeTitle: 'Đổi vé số',
+  Lang.exchangeHint: 'Vui lòng nhập số lượng vé xổ số',
+  Lang.exchangeHave: 'Sở hữu',
+  Lang.exchangeSureDo: 'Xác nhận đổi',
+  Lang.exchangeAmountError: 'Nhập số hợp lệ',
+
+  Lang.userInfoTitle: 'Thông tin cá nhân',
+  Lang.userInfoRealName: 'Tên tài khoản',
+  Lang.userInfoBank: 'Thẻ ngân hàng',
+  Lang.userInfoNickNameTitle: 'Thông tin',
+  Lang.userInfoBankTitle: 'Thẻ ngân hàng',
+  Lang.userInfoNickNameHint: 'Nhập tên',
+  Lang.userInfoBankNameHint: 'Tên ngân hàng',
+  Lang.userInfoBankNumberHint: 'Số thẻ',
+  Lang.userInfoRealNameHint: 'Tên tài khoản',
+  Lang.userInfoInputHint: 'Chưa liên kết',
+  Lang.userInfoBankNameChoice: 'Chọn ngân hàng',
 };

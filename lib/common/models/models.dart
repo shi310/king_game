@@ -1,5 +1,6 @@
 library;
 
+export 'bank_list_model.dart';
 export 'config.dart';
 export 'invite.dart';
 export 'login.dart';
