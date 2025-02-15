@@ -67,6 +67,8 @@ const Map<String, String> vi = {
   Lang.debug: 'Tính năng đang phát triển, vui lòng chờ',
 
   Lang.bag: 'Túi đồ',
+  Lang.confirm: 'Xác nhận',
+  Lang.check: 'Xem thử',
 
   Lang.rechargeViewTitle: 'Cửa hàng điểm',
   Lang.rechargeViewBuy: 'Mua điểm',
@@ -77,6 +79,9 @@ const Map<String, String> vi = {
   Lang.exchangeHave: 'Sở hữu',
   Lang.exchangeSureDo: 'Xác nhận đổi',
   Lang.exchangeAmountError: 'Nhập số hợp lệ',
+  Lang.exchangeSuccess: 'Đổi thưởng thành công',
+  Lang.exchangeSuccessInfo: 'Hoặc kiểm tra trong [ Tôi → Điểm của tôi ]',
+  Lang.exchangeFailure: 'Đổi thưởng thất bại',
 
   Lang.userInfoTitle: 'Thông tin cá nhân',
   Lang.userInfoRealName: 'Tên tài khoản',
@@ -89,4 +94,6 @@ const Map<String, String> vi = {
   Lang.userInfoRealNameHint: 'Tên tài khoản',
   Lang.userInfoInputHint: 'Chưa liên kết',
   Lang.userInfoBankNameChoice: 'Chọn ngân hàng',
+
+  Lang.skinDialogTitle: 'Thông tin skin',
 };

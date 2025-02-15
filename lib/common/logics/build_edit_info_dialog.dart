@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:king_game/common/common.dart';
 
 Future<void> buildEditInfoDialog() async {
-  return showMyWidgetDialog(
+  return showMyDialog(
     header: _buildHeader(),
     body: _buildBody(),
   );
@@ -96,6 +96,12 @@ class EditInfoState extends State<EditInfoBody> {
 
     if (userInfo.cardNumber.isNotEmpty) {
       _numberNameController.text = userInfo.cardNumber;
+    }
+
+    if (userInfo.bankName.isNotEmpty) {
+      setState(() {
+        _bank = userInfo.bankName;
+      });
     }
   }
 

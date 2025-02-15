@@ -102,7 +102,7 @@ class BagView extends GetView<BagController> {
             ),
           ]);
 
-          return MyButton(onPressed: () {}, child: body);
+          return MyButton(child: body);
         }).toList()
     ));
   }

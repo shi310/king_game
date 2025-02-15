@@ -67,6 +67,8 @@ const Map<String, String> zh = {
   Lang.debug: '功能正在开发，敬请期待',
 
   Lang.bag: '我的背包',
+  Lang.confirm: '确认',
+  Lang.check: '去看看',
 
   Lang.rechargeViewTitle: '点券商店',
   Lang.rechargeViewBuy: '购买点券',
@@ -77,6 +79,9 @@ const Map<String, String> zh = {
   Lang.exchangeHave: '拥有',
   Lang.exchangeSureDo: '确认兑换',
   Lang.exchangeAmountError: '请输入正确的兑换数量',
+  Lang.exchangeSuccess: '兑换成功',
+  Lang.exchangeSuccessInfo: '或在 [ 我的 → 我的积分 ] 中查看',
+  Lang.exchangeFailure: '兑换失败',
 
   Lang.userInfoTitle: '个人信息',
   Lang.userInfoRealName: '账户姓名',
@@ -89,4 +94,6 @@ const Map<String, String> zh = {
   Lang.userInfoRealNameHint: '账户名称',
   Lang.userInfoInputHint: '未绑定',
   Lang.userInfoBankNameChoice: '请选择银行',
+
+  Lang.skinDialogTitle: '皮肤信息',
 };

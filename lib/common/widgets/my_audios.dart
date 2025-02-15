@@ -9,7 +9,9 @@ enum MyAudioPath {
   dialog('audios/dialog.mp3'),
   news('audios/news.mp3'),
   scan('audios/scan.mp3'),
-  setting('audios/setting.mp3');
+  setting('audios/setting.mp3'),
+  exchangeSuccessful('audios/exchange_successful.mp3'),
+  exchangeFailed('audios/exchange_failed.mp3');
 
   final String path;
 

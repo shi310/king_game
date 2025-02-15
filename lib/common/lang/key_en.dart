@@ -67,6 +67,8 @@ const Map<String, String> en = {
   Lang.debug: 'Feature under development, stay tuned',
 
   Lang.bag: 'My Bag',
+  Lang.confirm: 'Confirm',
+  Lang.check: 'Check it out',
 
   Lang.rechargeViewTitle: 'Token Store',
   Lang.rechargeViewBuy: 'Buy Tokens',
@@ -77,6 +79,9 @@ const Map<String, String> en = {
   Lang.exchangeHave: 'Owned',
   Lang.exchangeSureDo: 'Confirm Redemption',
   Lang.exchangeAmountError: 'Enter a valid amount',
+  Lang.exchangeSuccess: 'Exchange Successful',
+  Lang.exchangeSuccessInfo: 'Or check in [ My → My Points ]',
+  Lang.exchangeFailure: 'Exchange Failed',
 
   Lang.userInfoTitle: 'Profile',
   Lang.userInfoRealName: 'Account Name',
@@ -89,4 +94,6 @@ const Map<String, String> en = {
   Lang.userInfoRealNameHint: 'Account Name',
   Lang.userInfoInputHint: 'Not Bound',
   Lang.userInfoBankNameChoice: 'Select Bank',
+
+  Lang.skinDialogTitle: 'Skin Information',
 };

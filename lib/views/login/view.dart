@@ -59,7 +59,6 @@ class LoginView extends GetView<LoginController> {
           const SizedBox(height: 10),
 
           buildButton(
-            context: context,
             margin: EdgeInsets.symmetric(horizontal: paddingHorizontal / 2),
             onPressed: controller.onLogin,
             height: 55,

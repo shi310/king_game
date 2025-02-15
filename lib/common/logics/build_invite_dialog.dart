@@ -7,7 +7,7 @@ void buildInviteDialog() {
   final inviteData = InviteModel.empty().obs;
   final friendsIndex = 0.obs;
   inviteData.value.update().then((value) => inviteData.refresh());
-  showMyWidgetDialog(
+  showMyDialog(
     header: Row(children: [
       SizedBox(height: MyConfig.app.alertHeaderHeight / 2, child: MyIcons.inviteHeaderIcon),
       SizedBox(width: 4,),

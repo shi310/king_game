@@ -11,7 +11,7 @@ Future<void> buildSettingDialog() async {
   
   final versionInfo = await MyDeviceInfo.getDeviceInfo();
 
-  return showMyWidgetDialog(
+  return showMyDialog(
     header: Obx(() => MyStrokeText(
       text: lang.value,
       strokeWidth: 4,
@@ -172,9 +172,7 @@ Future<void> buildSettingDialog() async {
 
           SizedBox(height: 8),
 
-          MyButton(onPressed: () {
-            Get.offAllNamed(MyRoutes.loginView);
-          }, child: buildItemButton(
+          MyButton(onPressed: onLogOUt, child: buildItemButton(
             width: double.infinity,
             height: 55,
             color: Color(0xFF04173D),

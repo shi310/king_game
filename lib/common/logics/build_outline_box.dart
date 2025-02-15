@@ -28,7 +28,8 @@ Widget buildOutlineBox({
         ),
       ],
     ),
-    child: Stack(clipBehavior: Clip.none, children: [
+    child: IntrinsicHeight(child: Stack(clipBehavior: Clip.none, children: [
+      Opacity(opacity: 0, child: child),
       Container(
         padding: EdgeInsets.all(6),
         height: 20,
@@ -38,6 +39,6 @@ Widget buildOutlineBox({
         ),
       ),
       Positioned(left: 8, right: 8, top: 8, child: child),
-    ])
+    ]))
   );
 }

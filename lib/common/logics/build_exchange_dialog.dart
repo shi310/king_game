@@ -5,8 +5,7 @@ import 'package:king_game/common/common.dart';
 
 void buildExchangeDialog() {
   int amount = 0;
-  showMyWidgetDialog(
-    showBottom: true,
+  showMyDialog(
     header: _buildHeader(),
     body: ExchangeBody(onAmountChanged: (value) => amount = value),
     footer: _buildFooter(() => amount),
@@ -124,7 +123,7 @@ class ExchangeBodyState extends State<ExchangeBody> {
           Row(children: [
             Stack(children: [
               SizedBox(height: 40, child: MyIcons.inviteUrlBackgroundLeft),
-              Positioned.fill(child: Center(child: SizedBox(height: 18, child: MyIcons.headerCard)))
+              Positioned.fill(left: -5, top: -2, child: Center(child: SizedBox(height: 18, child: MyIcons.headerCard)))
             ]),
             Expanded(child: Stack(children: [
               SizedBox(height: 40, child: MyIcons.inviteUrlBackgroundMiddle),
@@ -146,47 +145,41 @@ class ExchangeBodyState extends State<ExchangeBody> {
 }
 
 Widget _buildFooter(int Function() getAmount) {
-  return MyButton(onPressed: () async {
-    if (getAmount() <= 0) {
-      MyAlert.showSnack(child: Text(Lang.exchangeAmountError.tr, style: TextStyle(color: Colors.white)));
-      return;
-    }
-    Get.back();
-    showMyLoading();
-    await UserController.to.myDio?.post(MyApi.user.exchangeDiamond,
-      data: {'amount': getAmount()},
-      onSuccess: (code, msg, data) async {
-        await UserController.to.userInfo.value.update();
-        UserController.to.userInfo.refresh();
-        MyAlert.showSnack(child: Text(msg, style: TextStyle(color: Colors.white)));
-      },
-      onError: (e) {
-        MyAlert.showSnack(child: Text('${e.error}', style: TextStyle(color: Colors.white)));
+  return buildButton(
+    margin: const EdgeInsets.symmetric(vertical: 18, horizontal: 80),
+    onPressed: () async {
+      if (getAmount() <= 0) {
+        MyAlert.showSnack(child: Text(Lang.exchangeAmountError.tr, style: TextStyle(color: Colors.white)));
+        return;
       }
-    );
-    hideMyLoading();
-  }, child: LayoutBuilder(builder: (context, container) {
-    final child = buildButton(
-      context: context,
-      height: 44,
-      colors: [Color(0xFFF96312), Color(0xFFF96312)],
-      shadowColor: Color(0xFF944600),
-      child: Center(child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        SizedBox(height: 30, child: MyIcons.headerCard),
-        Flexible(child: FittedBox(child: MyStrokeText(
-          text: Lang.exchangeSureDo.tr,
-          strokeWidth: 4,
-          dy: 3,
-          fontFamily: 'Sans',
-          fontSize: 13,
-        ))),
-        SizedBox(width: 8),
-      ])),
-    );
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 80),
-      child: child,
-    );
-  }));
+      Get.back();
+      showMyLoading();
+      await UserController.to.myDio?.post(MyApi.user.exchangeDiamond,
+          data: {'amount': getAmount()},
+          onSuccess: (code, msg, data) async {
+            await UserController.to.userInfo.value.update();
+            UserController.to.userInfo.refresh();
+            MyAlert.showSnack(child: Text(msg, style: TextStyle(color: Colors.white)));
+          },
+          onError: (e) {
+            MyAlert.showSnack(child: Text('${e.error}', style: TextStyle(color: Colors.white)));
+          }
+      );
+      hideMyLoading();
+    },
+    height: 44,
+    colors: [Color(0xFFF96312), Color(0xFFF96312)],
+    shadowColor: Color(0xFF944600),
+    child: Center(child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      SizedBox(height: 30, child: MyIcons.headerCard),
+      Flexible(child: FittedBox(child: MyStrokeText(
+        text: Lang.exchangeSureDo.tr,
+        strokeWidth: 4,
+        dy: 3,
+        fontFamily: 'Sans',
+        fontSize: 13,
+      ))),
+      SizedBox(width: 8),
+    ])),
+  );
 }

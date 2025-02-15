@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:king_game/common/common.dart';
 
 Future<void> buildUserInfoDialog() async {
-  return showMyWidgetDialog(
+  return showMyDialog(
     header: _buildHeader(),
     body: _buildBody(),
   );

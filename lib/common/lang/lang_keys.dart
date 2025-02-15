@@ -68,6 +68,8 @@ abstract class Lang {
 
   static const copySuccessful = "copy_successful";
   static const bag = "bag";
+  static const confirm = "confirm";
+  static const check = "check";
 
   static const rechargeViewTitle = "recharge_view_title";
   static const rechargeViewBuy = "recharge_view_buy";
@@ -78,6 +80,9 @@ abstract class Lang {
   static const exchangeHave = "exchange_have";
   static const exchangeSureDo = "exchange_sure_do";
   static const exchangeAmountError = "exchange_amount_error";
+  static const exchangeSuccess = "exchange_success";
+  static const exchangeSuccessInfo = "exchange_success_info";
+  static const exchangeFailure = "exchange_failure";
 
   static const userInfoTitle = "user_info_title";
   static const userInfoRealName = "user_info_real_name";
@@ -90,4 +95,6 @@ abstract class Lang {
   static const userInfoRealNameHint = "user_info_real_name_hint";
   static const userInfoInputHint = "user_info_input_hint";
   static const userInfoBankNameChoice = "user_info_bank_name_choice";
+
+  static const skinDialogTitle = "skin_dialog_title";
 }

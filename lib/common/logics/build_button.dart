@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:king_game/common/common.dart';
 
 Widget buildButton({
-  required BuildContext context,
   void Function()? onPressed,
   EdgeInsetsGeometry? margin,
   required double height,

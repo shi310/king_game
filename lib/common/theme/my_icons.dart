@@ -67,7 +67,8 @@ class MyIcons {
   static MyAssets get alertBottomCenter => MyAssets(name:'alert_bottom_center', style: MyAssetStyle.png, width: double.infinity, fit: BoxFit.fill);
   static MyAssets get alertBottomRight1 => MyAssets(name:'alert_bottom_right_1', style: MyAssetStyle.png);
   static MyAssets get alertBottomRight2 => MyAssets(name:'alert_bottom_right_2', style: MyAssetStyle.png);
-
+  static MyAssets get alertBackground => MyAssets(name:'alert_background', style: MyAssetStyle.png);
+  static MyAssets get alertFailed => MyAssets(name:'alert_failed', style: MyAssetStyle.png);
 
   static MyAssets get langChecked => MyAssets(name:'lang_checked', style: MyAssetStyle.png);
   static MyAssets get langCn => MyAssets(name:'lang_cn', style: MyAssetStyle.png);
