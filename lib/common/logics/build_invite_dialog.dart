@@ -162,7 +162,7 @@ Widget _buildBottom({
       Stack(clipBehavior: Clip.none, children: [
         SizedBox(height: 40, width: double.infinity),
         Positioned(top: -20, left: 20, right: 20, child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          MyButton(onPressed: friendsIndex.value == 0 ? null : () {
+          Obx(() => MyButton(onPressed: friendsIndex.value == 0 ? null : () {
             friendsIndex.value = 0;
             friendsIndex.refresh();
           }, child: Stack(children: [
@@ -172,7 +172,7 @@ Widget _buildBottom({
               SizedBox(width: 4),
               Text(Lang.inviteFriendsAlertTypeRegister.tr, style: TextStyle(fontSize: 13, color: Color(0xFFFFFFFF))),
             ])))),
-          ])),
+          ]))),
           SizedBox(width: 10),
           Obx(() => MyButton(onPressed: friendsIndex.value == 1 ? null : () {
             friendsIndex.value = 1;
@@ -184,7 +184,7 @@ Widget _buildBottom({
               SizedBox(width: 4),
               Text(Lang.inviteFriendsAlertRecharge.tr, style: TextStyle(fontSize: 13, color: Color(0xFFFFFFFF))),
             ])))),
-          ])),)
+          ])))
         ]))
       ],),
       Expanded(child: Container())

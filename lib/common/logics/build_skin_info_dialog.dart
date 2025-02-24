@@ -187,6 +187,7 @@ void _exchangeSuccess(SkinModel skinData) {
     Row(children: [
       SizedBox(width: 64),
       Expanded(child: buildButton(
+        isPlayAudio: false,
         onPressed: () {
           Get.back();
         },
@@ -208,9 +209,10 @@ void _exchangeSuccess(SkinModel skinData) {
       )),
       SizedBox(width: 8),
       Expanded(child: buildButton(
+        isPlayAudio: false,
         onPressed: () {
           Get.back();
-          Get.toNamed(MyRoutes.bagView);
+          Get.toNamed(MyRoutes.bag);
         },
         height: 44,
         colors: [Color(0xFFF96312), Color(0xFFF96312)],

@@ -18,7 +18,7 @@ class BankListModel {
   };
 
   Future<void> update() async {
-    return UserController.to.myDio?.post<BankListModel>(MyApi.user.getBankList,
+    await UserController.to.myDio?.post<BankListModel>(MyApi.user.getBankList,
       onSuccess: (code, msg, data) {
         list = data.list;
       },

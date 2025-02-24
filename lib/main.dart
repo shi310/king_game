@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       unknownRoute: MyPages.unknownRoute,
 
       // 启动页面
-      initialRoute: MyRoutes.indexView,
+      initialRoute: MyRoutes.index,
 
       // APP字典，多语言切换
       translations: MyLang(), //字典

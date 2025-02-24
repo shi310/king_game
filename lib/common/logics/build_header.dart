@@ -76,11 +76,11 @@ Widget buildHeader(BuildContext context, {
         Container(
           height: buttonHeight / 2,
           decoration: BoxDecoration(
-              color: Color(0xFF444444),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(6),
-                topRight: Radius.circular(6),
-              )
+            color: Color(0xFF444444),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(6),
+              topRight: Radius.circular(6),
+            ),
           ),
         ),
       ]),
@@ -118,17 +118,17 @@ Widget buildHeader(BuildContext context, {
     children: [
       // SizedBox(width: padding),
       Expanded(child: Obx(() => buildButton(
-        onPressed: () => Get.toNamed(MyRoutes.rechargeView),
+        onPressed: () => Get.toNamed(MyRoutes.recharge),
         icon: MyIcons.headerStone,
         addButton: MyIcons.headerAdd2,
-          balance: '${UserController.to.userInfo.value.balance}'
+        balance: '${UserController.to.userInfo.value.balance}'
       ))),
       SizedBox(width: 4),
       Expanded(child: Obx(() => buildButton(
-          onPressed: () => buildExchangeDialog(),
-          icon: MyIcons.headerCard,
-          addButton: MyIcons.headerAdd1,
-          balance: '${UserController.to.userInfo.value.tickets}'
+        onPressed: () => buildExchangeDialog(),
+        icon: MyIcons.headerCard,
+        addButton: MyIcons.headerAdd1,
+        balance: '${UserController.to.userInfo.value.tickets}'
       ))),
       SizedBox(width: padding),
     ],

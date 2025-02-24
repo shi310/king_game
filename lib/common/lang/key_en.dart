@@ -72,7 +72,8 @@ const Map<String, String> en = {
 
   Lang.rechargeViewTitle: 'Token Store',
   Lang.rechargeViewBuy: 'Buy Tokens',
-  Lang.rechargeViewMoney: '\$',
+  Lang.rechargeViewMoney: '₫',
+  Lang.tokenExpired: 'Token has expired. Please log in again',
 
   Lang.exchangeTitle: 'Redeem Lottery Tickets',
   Lang.exchangeHint: 'Please enter the number of raffle tickets',
@@ -96,4 +97,28 @@ const Map<String, String> en = {
   Lang.userInfoBankNameChoice: 'Select Bank',
 
   Lang.skinDialogTitle: 'Skin Information',
+  Lang.openTurntable: 'Open Turntable',
+  Lang.openBox: 'Open Blind Box',
+
+  Lang.turntableSilver: 'S',
+  Lang.turntableGold: 'S+',
+  Lang.turntableDiamond: 'S++',
+  Lang.turntableIsTurning: 'The turntable is spinning, please try again later',
+
+  Lang.openingBox: 'The treasure chest is opening, please try again later.',
+  Lang.price: 'Congratulations, you won!',
+
+  Lang.boxEmpty: 'Failed to open the chest',
+  Lang.gameTurntable: 'Wheel of Fortune',
+  Lang.gameBox: 'Lucky Mystery Box',
+
+  Lang.betNumber: 'No. %s',
+  Lang.betBig: 'Big',
+  Lang.betSmall: 'Small',
+  Lang.betOdd: 'Odd',
+  Lang.betEven: 'Even',
+  Lang.betAmountMax: 'Max',
+  Lang.betVND: 'Bet VND',
+  Lang.betConfirm: 'Confirm Bet',
+  Lang.betClear: 'Clear',
 };

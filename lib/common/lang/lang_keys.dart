@@ -70,6 +70,7 @@ abstract class Lang {
   static const bag = "bag";
   static const confirm = "confirm";
   static const check = "check";
+  static const tokenExpired = "token_expired";
 
   static const rechargeViewTitle = "recharge_view_title";
   static const rechargeViewBuy = "recharge_view_buy";
@@ -97,4 +98,25 @@ abstract class Lang {
   static const userInfoBankNameChoice = "user_info_bank_name_choice";
 
   static const skinDialogTitle = "skin_dialog_title";
+  static const openTurntable = "open_turntable";
+  static const openBox = 'open_box';
+  static const turntableSilver = 'turntable_silver';
+  static const turntableGold = 'turntable_gold';
+  static const turntableDiamond = 'turntable_diamond';
+  static const turntableIsTurning = 'turntable_is_turning';
+  static const openingBox = 'opening_box';
+  static const price = 'price';
+  static const boxEmpty = 'box_empty';
+  static const gameTurntable = 'game_turntable';
+  static const gameBox = 'game_box';
+
+  static const betNumber = 'bet_number';
+  static const betBig = 'bet_big';
+  static const betSmall = 'bet_small';
+  static const betOdd = 'bet_odd';
+  static const betEven = 'bet_even';
+  static const betAmountMax = 'bet_amount_max';
+  static const betVND = 'bet_vnd';
+  static const betConfirm = 'bet_confirm';
+  static const betClear = 'bet_clear';
 }

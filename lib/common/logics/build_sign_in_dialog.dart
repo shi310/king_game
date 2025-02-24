@@ -83,7 +83,7 @@ Widget _buildSignInWin({
   ]);
 
   return Container(
-      padding: EdgeInsets.fromLTRB(16, 50, 16, 16),
+      padding: EdgeInsets.fromLTRB(20, 50, 20, 16),
       decoration: BoxDecoration(
         color: Color(0xFF64AAF1),
       ),
@@ -92,19 +92,58 @@ Widget _buildSignInWin({
           Opacity(opacity: 0, child: signInWinBox),
           Positioned.fill(child: LayoutBuilder(builder: (context, container) {
             DateTime now = DateTime.now();
-            int totalDays = DateTime(now.year, now.month + 1, 0).day;
-            final signInDays = now.day - 1 - signInData.omissions;
-            return Align(alignment: Alignment.bottomCenter, child: Padding(padding: EdgeInsets.only(bottom: 20 + 10 + 6, left: container.maxWidth * 0.1, right: container.maxWidth * 0.1), child: Container(
+            int signInDays = 0;
+
+            for (int i = 0; i <= now.day; i++) {
+              if (signInData.signInTree['$i'] == 1) {
+                signInDays++;
+              }
+            }
+
+            int length1 = signInDays > 0 && signInDays < 7
+              ? signInDays - 1
+              : signInDays < 1 ? 0 : 5;
+
+            int length2 = signInDays > 7 && signInDays < 14
+              ? signInDays - 7
+              : signInDays < 14 ? 0 : 6;
+
+            int length3 = signInDays > 14 && signInDays < 21
+              ? signInDays - 14
+              : signInDays < 21 ? 0 : 6;
+
+            int length4 = signInDays > 21 && signInDays < 30
+              ? signInDays - 21
+              : signInDays < 21 ? 0 : 8;
+
+            return Align(alignment: Alignment.bottomCenter, child: Padding(padding: EdgeInsets.only(bottom: 20 + 10 + 6, left: container.maxWidth * 0.11, right: container.maxWidth * 0.11), child: Container(
               height: 12,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: Colors.black,
                 border: Border.all(color: Colors.black, width: 2),
               ),
-              child: Align(alignment: Alignment.centerLeft, child: Container(
-                width: container.maxWidth / totalDays * signInDays,
-                color: Color(0xFF9EF9FC),
-              ),),
+              child: Row(children: [
+                Expanded(child: Align(alignment: Alignment.centerLeft, child: Container(
+                  width: container.maxWidth * 0.78 / 4 / 5 * length1,
+                  color: Color(0xFF9EF9FC),
+                ))),
+                SizedBox(width: container.maxWidth * 0.05),
+                Expanded(child: Align(alignment: Alignment.centerLeft, child: Container(
+                  width: container.maxWidth * 0.78 / 4 / 6 * length2,
+                  color: Color(0xFF9EF9FC),
+                ))),
+                SizedBox(width: container.maxWidth * 0.05),
+                Expanded(child: Align(alignment: Alignment.centerLeft, child: Container(
+                  width: container.maxWidth * 0.78 / 4 / 6 * length3,
+                  color: Color(0xFF9EF9FC),
+                ))),
+                SizedBox(width: container.maxWidth * 0.05),
+                Expanded(child: Align(alignment: Alignment.centerLeft, child: Container(
+                  width: container.maxWidth * 0.78 / 4 / 8 * length4,
+                  color: Color(0xFF9EF9FC),
+                ))),
+              ]),
             )));
           })),
           signInWinBox,
@@ -135,7 +174,14 @@ Widget _buildSignInWinItem({
     }
   }
 
+  bool show1 =  int.parse(index) == 1 && signInDays == 0;
+  bool show7 = int.parse(index) == 7 && signInDays >= 1 && signInDays < 7;
+  bool show14 = int.parse(index) == 14 && signInDays >= 7 && signInDays < 14;
+  bool show21 = int.parse(index) == 21 && signInDays >= 14 && signInDays < 21;
+  bool show30 = int.parse(index) == 30 && signInDays >= 21;
+
   return Column(children: [
+
     Stack(clipBehavior: Clip.none, children: [
       signInData.continuous[index] != 0
           ? MyIcons.signInNeverWinIcon
@@ -145,7 +191,7 @@ Widget _buildSignInWinItem({
         Positioned(right: -4, top: -4, child: Center(child: SizedBox(height: 24, child: MyIcons.langChecked)))
     ]),
     SizedBox(height: 10),
-    int.parse(index) - signInDays > 0 && (int.parse(index) - signInDays <= 7 || (signInDays > 20 && int.parse(index) - signInDays <= 9))
+    show1 || show7 || show14 || show21 || show30
         ? SizedBox(height: 24, child: MyIcons.signInWinDay)
         : SizedBox(height: 24, child: MyIcons.signInDay),
     SizedBox(height: 10),
@@ -242,7 +288,7 @@ Widget _buildCalendar({
       SizedBox(width: 8),
       Text(Lang.signInAlertMissed.trArgs(['${signInData.omissions}']), style: TextStyle(color: Colors.white, fontSize: 12)),
     ]),
-    SizedBox(height: MyConfig.app.alertFooterHeight),
+    SizedBox(height: MyConfig.app.alertFooterHeight / 1.4),
 
   ],
   ));

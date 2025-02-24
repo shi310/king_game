@@ -111,4 +111,22 @@ class MyIcons {
   static MyAssets get editCancel => MyAssets(name: 'edit_cancel', style: MyAssetStyle.png);
   static MyAssets get editSure => MyAssets(name: 'edit_sure', style: MyAssetStyle.png);
   static MyAssets get editUserInfo => MyAssets(name: 'edit_user_info', style: MyAssetStyle.png);
+
+  static MyAssets get lotteryBackground => MyAssets(name: 'lottery_background', style: MyAssetStyle.png, width: double.infinity, height: double.infinity, fit: BoxFit.fill);
+  static MyAssets get lotteryTurntable => MyAssets(name: 'lottery_turntable', style: MyAssetStyle.png);
+  static MyAssets get lotteryBody => MyAssets(name: 'lottery_body', style: MyAssetStyle.png);
+  static MyAssets get lotteryPointer => MyAssets(name: 'lottery_pointer', style: MyAssetStyle.png);
+  static MyAssets get lotteryButton0 => MyAssets(name: 'lottery_button_0', style: MyAssetStyle.png);
+  static MyAssets get lotteryButton1 => MyAssets(name: 'lottery_button_1', style: MyAssetStyle.png);
+  static MyAssets get lotteryButton2 => MyAssets(name: 'lottery_button_2', style: MyAssetStyle.png);
+  static MyAssets get turntableWin => MyAssets(name: 'turntable_win', style: MyAssetStyle.png);
+  static MyAssets get boxBackground => MyAssets(name: 'box_background', style: MyAssetStyle.png, width: double.infinity, height: double.infinity, fit: BoxFit.fill);
+  static MyAssets lotteryHeaderButton(int index) => MyAssets(name: 'lottery_header_button_$index', style: MyAssetStyle.png, width: double.infinity, fit: BoxFit.fitWidth,);
+
+  static MyAssets get gameHelp => MyAssets(name: 'game_help', style: MyAssetStyle.png);
+  static MyAssets get gameTeam => MyAssets(name: 'game_team', style: MyAssetStyle.png);
+
+  static MyAssets get gameLeft => MyAssets(name: 'game_left', style: MyAssetStyle.png);
+  static MyAssets get gameRight => MyAssets(name: 'game_right', style: MyAssetStyle.png);
+
 }

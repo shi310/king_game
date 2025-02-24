@@ -28,7 +28,7 @@ class SignInModel {
   );
 
   Future<void> update() async {
-    return UserController.to.myDio?.get<SignInModel>(MyApi.signIn.getSingInInfo,
+    await UserController.to.myDio?.get<SignInModel>(MyApi.signIn.getSingInInfo,
       onSuccess: (code, msg, data) {
         firstDayOfWeek = data.firstDayOfWeek;
         omissions = data.omissions;

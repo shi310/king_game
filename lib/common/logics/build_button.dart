@@ -8,6 +8,7 @@ Widget buildButton({
   required Color shadowColor,
   required List<Color> colors,
   Widget? child,
+  bool isPlayAudio = true,
 }) {
   final borderRadius = BorderRadius.circular(10);
 

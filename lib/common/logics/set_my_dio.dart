@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:king_game/common/common.dart';
 import 'package:my_device_info/my_device_info.dart';
 
@@ -21,10 +23,9 @@ Future<void> setMyDio({
     onResponse: (response) async {
       if (response.data is Map<String, dynamic>) {
         final responseModel = ResponseModel.fromJson(response.data);
-        if ([4].contains(responseModel.code)) {
-
-        } else if ([2].contains(responseModel.code)) {
-
+        if ([401].contains(responseModel.code)) {
+          MyAlert.showSnack(child: Text(Lang.tokenExpired.tr, style: TextStyle(color: Colors.white)));
+          onLogOUt();
         }
       }
     },

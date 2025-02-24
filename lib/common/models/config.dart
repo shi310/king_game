@@ -45,7 +45,7 @@ class ConfigModel {
   };
   
   Future<void> update() async {
-    return UserController.to.myDio?.get<ConfigModel>(MyApi.base.getConfig,
+    await UserController.to.myDio?.get<ConfigModel>(MyApi.base.getConfig,
       onSuccess: (code, msg, data) {
         boxAmountS = data.boxAmountS;
         boxAmountSs = data.boxAmountSs;

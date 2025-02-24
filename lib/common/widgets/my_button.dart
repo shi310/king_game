@@ -53,6 +53,7 @@ class CustomButtonState extends State<MyButton> {
     Get.focusScope?.unfocus();
 
     MyAudio.play(MyAudioPath.click);
+
     widget.onPressed?.call();
 
     if (widget.isDebounce) {

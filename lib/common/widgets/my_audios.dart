@@ -1,9 +1,8 @@
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:king_game/common/common.dart';
 
 enum MyAudioPath {
-  achievement('audios/achievement.mp3'), 
+  achievement('audios/achievement.mp3'),
   click('audios/click.mp3'),
   coinDrop('audios/coin_drop.mp3'),
   dialog('audios/dialog.mp3'),
@@ -28,33 +27,42 @@ class MyAudio {
   static Future<void> stop() => _instance._stop();
   static void dispose() => _instance._dispose();
 
-  // 音频播放器实例（懒加载）
-  late final AudioPlayer _audioPlayer = AudioPlayer();
+  final Map<MyAudioPath, AudioPlayer> _audioPlayers = {};
 
-  // 播放音频文件
   Future<void> _play(MyAudioPath audioPath) async {
-    if(!UserController.to.isOpenAudio) {
+    if (!UserController.to.isOpenAudio) {
       return;
     }
-    // 检查播放器状态
-    if (_audioPlayer.state == PlayerState.playing) {
-      await _audioPlayer.stop();
+
+    if (!_audioPlayers.containsKey(audioPath)) {
+      _audioPlayers[audioPath] = AudioPlayer();
     }
-    await _audioPlayer.play(AssetSource(audioPath.path));
+
+    final player = _audioPlayers[audioPath]!;
+
+    if (player.state == PlayerState.playing) {
+      await player.stop();
+    }
+
+    await player.play(AssetSource(audioPath.path));
   }
 
-  // 暂停音频播放
   Future<void> _pause() async {
-    await _audioPlayer.pause();
+    for (var player in _audioPlayers.values) {
+      await player.pause();
+    }
   }
 
-  // 停止音频播放
   Future<void> _stop() async {
-    await _audioPlayer.stop();
+    for (var player in _audioPlayers.values) {
+      await player.stop();
+    }
   }
 
-  // 释放音频播放器资源
   void _dispose() {
-    _audioPlayer.dispose();
+    for (var player in _audioPlayers.values) {
+      player.dispose();
+    }
+    _audioPlayers.clear();
   }
 }

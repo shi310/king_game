@@ -73,6 +73,7 @@ const Map<String, String> vi = {
   Lang.rechargeViewTitle: 'Cửa hàng điểm',
   Lang.rechargeViewBuy: 'Mua điểm',
   Lang.rechargeViewMoney: '₫',
+  Lang.tokenExpired: 'Token đã hết hạn. Vui lòng đăng nhập lại',
 
   Lang.exchangeTitle: 'Đổi vé số',
   Lang.exchangeHint: 'Vui lòng nhập số lượng vé xổ số',
@@ -96,4 +97,26 @@ const Map<String, String> vi = {
   Lang.userInfoBankNameChoice: 'Chọn ngân hàng',
 
   Lang.skinDialogTitle: 'Thông tin skin',
+  Lang.openTurntable: 'Mở Bánh Xe Quay',
+  Lang.openBox: 'Mở Hộp Mù',
+
+  Lang.turntableSilver: 'S',
+  Lang.turntableGold: 'S+',
+  Lang.turntableDiamond: 'S++',
+  Lang.turntableIsTurning: 'Vòng quay đang quay, vui lòng thử lại sau',
+  Lang.openingBox: 'Hòm kho báu đang mở, vui lòng thử lại sau.',
+  Lang.price: 'Chúc mừng bạn đã trúng thưởng!',
+  Lang.boxEmpty: 'Mở hộp thất bại',
+  Lang.gameTurntable: 'Vòng quay may mắn',
+  Lang.gameBox: 'Hộp bí ẩn may mắn',
+
+  Lang.betNumber: 'Hạng %s',
+  Lang.betBig: 'Tài',
+  Lang.betSmall: 'Xỉu',
+  Lang.betOdd: 'Lẻ',
+  Lang.betEven: 'Chẵn',
+  Lang.betAmountMax: 'Tối đa',
+  Lang.betVND: 'Cược VND',
+  Lang.betConfirm: 'Xác nhận cược',
+  Lang.betClear: 'Xóa',
 };

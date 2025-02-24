@@ -6,5 +6,5 @@ Future<void> onLogOUt() async {
   UserController.to.userToken = '';
   UserController.to.userInfo.value = UserModel.empty();
   UserController.to.userInfo.refresh();
-  Get.offAllNamed(MyRoutes.loginView);
+  Get.offAllNamed(MyRoutes.login);
 }

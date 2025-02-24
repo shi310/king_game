@@ -68,7 +68,7 @@ Future<void> showMyDialog({
             filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
             child: GestureDetector(
               onTap: () {
-                MyAudio.play(MyAudioPath.click);
+                // MyAudio.play(MyAudioPath.click);
                 Get.back();
               },
               child: Container(
@@ -87,7 +87,7 @@ Future<void> showMyDialog({
                   Flexible(child: child),
                   GestureDetector(
                     onTap: () {
-                      MyAudio.play(MyAudioPath.click);
+                      // MyAudio.play(MyAudioPath.click);
                       Get.back();
                     },
                     child: Column(children: [

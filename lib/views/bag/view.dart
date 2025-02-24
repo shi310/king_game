@@ -29,7 +29,7 @@ class BagView extends GetView<BagController> {
               text: Lang.bag.tr,
               fontSize: 18,
               strokeWidth: 4,
-              dy: -3,
+              dy: 3,
               fontFamily: 'Sans',
             )
           ]))),

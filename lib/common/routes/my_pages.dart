@@ -5,7 +5,7 @@ import 'package:king_game/views/views.dart';
 class MyPages {
   // 未知页面
   static final unknownRoute = GetPage(
-    name: MyRoutes.unknownView,
+    name: MyRoutes.unknown,
     page: () => const UnknownView(),
     binding: UnknownBinding(),
   );
@@ -13,7 +13,7 @@ class MyPages {
   static final List<GetPage> getPages = [
     // 初始页面
     GetPage(
-      name: MyRoutes.indexView,
+      name: MyRoutes.index,
       page: () => const IndexView(),
       binding: IndexBinding(),
       middlewares: [
@@ -23,30 +23,44 @@ class MyPages {
 
     // 登陆页面
     GetPage(
-      name: MyRoutes.loginView,
+      name: MyRoutes.login,
       page: () => const LoginView(),
       binding: LoginBinding(),
     ),
 
     // Application 主页面
     GetPage(
-      name: MyRoutes.applicationView,
+      name: MyRoutes.application,
       page: () => const ApplicationView(),
       binding: ApplicationBinding(),
     ),
 
     // 背包
     GetPage(
-      name: MyRoutes.bagView,
+      name: MyRoutes.bag,
       page: () => const BagView(),
       binding: BagBinding(),
     ),
 
     // 充值页面
     GetPage(
-      name: MyRoutes.rechargeView,
+      name: MyRoutes.recharge,
       page: () => const RechargeView(),
       binding: RechargeBinding(),
+    ),
+
+    // 抽奖
+    GetPage(
+      name: MyRoutes.gameLottery,
+      page: () => const LotteryView(),
+      binding: LotteryBinding(),
+    ),
+
+    // 投注
+    GetPage(
+      name: MyRoutes.gameBet,
+      page: () => const BetView(),
+      binding: BetBinding(),
     ),
   ];
 }

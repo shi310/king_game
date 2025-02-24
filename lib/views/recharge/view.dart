@@ -30,7 +30,7 @@ class RechargeView extends GetView<RechargeController> {
               text: Lang.rechargeViewTitle.tr,
               fontSize: 18,
               strokeWidth: 4,
-              dy: -3,
+              dy: 3,
               fontFamily: 'Sans',
             )
           ]))),
@@ -53,7 +53,7 @@ class RechargeView extends GetView<RechargeController> {
             fontSize: 18,
             fontFamily: 'Sans',
             strokeWidth: 4,
-            dy: -3,
+            dy: 3,
           )
         ])),
       ]),

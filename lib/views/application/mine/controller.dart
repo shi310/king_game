@@ -20,11 +20,11 @@ class MineController extends GetxController {
 
   void onBag() {
     // MyAlert.showSnack(child: Text(Lang.debug.tr, style: TextStyle(color: Colors.white)));
-    Get.toNamed(MyRoutes.bagView);
+    Get.toNamed(MyRoutes.bag);
   }
 
   void onRecharge() {
-    Get.toNamed(MyRoutes.rechargeView);
+    Get.toNamed(MyRoutes.recharge);
   }
 
   void onExchange() {

@@ -1,14 +1,18 @@
 class MyRoutes {
   // index
-  static const indexView = '/';
+  static const index = '/';
   // unknown
-  static const unknownView = '/unknown_view';
+  static const unknown = '/unknown';
   // welcome
-  static const loginView = '/login_view';
+  static const login = '/login';
   // application
-  static const applicationView = '/application_view';
+  static const application = '/application';
   // bag
-  static const bagView = '/bag_view';
+  static const bag = '/bag';
   // 充值
-  static const rechargeView = '/recharge_view';
+  static const recharge = '/recharge';
+  // 游戏 - 幸运抽奖
+  static const gameLottery = '/games/lottery';
+  // 游戏 - 投注
+  static const gameBet = '/games/bet';
 }

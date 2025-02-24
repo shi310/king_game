@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:king_game/common/common.dart';
 
 Future<dynamic> buildPrizeDialog({
   Widget? child,
@@ -17,7 +16,7 @@ Future<dynamic> buildPrizeDialog({
             filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
             child: GestureDetector(
               onTap: () {
-                MyAudio.play(MyAudioPath.click);
+                // MyAudio.play(MyAudioPath.click);
                 Get.back();
               },
               child: Container(

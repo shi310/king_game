@@ -30,7 +30,7 @@ class InviteModel {
   };
 
   Future<void> update() async {
-    return UserController.to.myDio?.get<InviteModel>(MyApi.user.getInviteInfo,
+    await UserController.to.myDio?.get<InviteModel>(MyApi.user.getInviteInfo,
       onSuccess: (code, msg, data) {
         inviteUserCount = data.inviteUserCount;
         inviteTickets = data.inviteTickets;

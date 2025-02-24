@@ -69,10 +69,11 @@ const Map<String, String> zh = {
   Lang.bag: '我的背包',
   Lang.confirm: '确认',
   Lang.check: '去看看',
+  Lang.tokenExpired: 'Token 已失效，请重新登录',
 
   Lang.rechargeViewTitle: '点券商店',
   Lang.rechargeViewBuy: '购买点券',
-  Lang.rechargeViewMoney: '¥',
+  Lang.rechargeViewMoney: '₫',
 
   Lang.exchangeTitle: '兑换抽奖券',
   Lang.exchangeHint: '请输入抽奖券数量',
@@ -80,7 +81,7 @@ const Map<String, String> zh = {
   Lang.exchangeSureDo: '确认兑换',
   Lang.exchangeAmountError: '请输入正确的兑换数量',
   Lang.exchangeSuccess: '兑换成功',
-  Lang.exchangeSuccessInfo: '或在 [ 我的 → 我的积分 ] 中查看',
+  Lang.exchangeSuccessInfo: '或在 [ 我的 → 我的点券 ] 中查看',
   Lang.exchangeFailure: '兑换失败',
 
   Lang.userInfoTitle: '个人信息',
@@ -96,4 +97,26 @@ const Map<String, String> zh = {
   Lang.userInfoBankNameChoice: '请选择银行',
 
   Lang.skinDialogTitle: '皮肤信息',
+  Lang.openTurntable: '开启转盘',
+  Lang.openBox: '开启盲盒',
+
+  Lang.turntableSilver: '白银',
+  Lang.turntableGold: '黄金',
+  Lang.turntableDiamond: '钻石',
+  Lang.turntableIsTurning: '转盘正在转动，请稍后再试',
+  Lang.openingBox: '宝箱正在开启，请稍后重试',
+  Lang.price: '恭喜您中奖啦',
+  Lang.boxEmpty: '宝箱开启失败',
+  Lang.gameTurntable: '转盘抽奖',
+  Lang.gameBox: '幸运盲盒',
+
+  Lang.betNumber: '第%s名',
+  Lang.betBig: '大',
+  Lang.betSmall: '小',
+  Lang.betOdd: '单',
+  Lang.betEven: '双',
+  Lang.betAmountMax: '最大',
+  Lang.betVND: '投注VND',
+  Lang.betConfirm: '确认投注',
+  Lang.betClear: '清空',
 };

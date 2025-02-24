@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:king_game/common/common.dart';
+import 'package:king_game/common/models/bet_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'controller.dart';
 
@@ -35,23 +37,27 @@ class GamesView extends StatelessWidget {
                 _buildSwiper(context),
                 SizedBox(height: 32),
                 _buildGameButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(MyRoutes.gameLottery);
+                  },
                   context,
                   index: 1,
                   title: Lang.gameViewRouletteLottery.tr,
                   time: '1h20s',
                 ),
+                // SizedBox(height: 20),
+                // _buildGameButton(
+                //   onPressed: () {},
+                //   context,
+                //   index: 2,
+                //   title: Lang.gameView5v5.tr,
+                //   time: '1h20s',
+                // ),
                 SizedBox(height: 20),
                 _buildGameButton(
-                  onPressed: () {},
-                  context,
-                  index: 2,
-                  title: Lang.gameView5v5.tr,
-                  time: '1h20s',
-                ),
-                SizedBox(height: 20),
-                _buildGameButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(MyRoutes.gameBet, arguments: BetType.bigAndSmall);
+                  },
                   context,
                   index: 3,
                   title: Lang.gameViewBigOrSmallBetting.tr,
@@ -59,7 +65,9 @@ class GamesView extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 _buildGameButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    await launchUrl(Uri.parse('http://52.77.255.228:8089/index.html'));
+                  },
                   context,
                   index: 4,
                   title: Lang.gameViewMonopoly.tr,
@@ -67,7 +75,9 @@ class GamesView extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 _buildGameButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(MyRoutes.gameBet, arguments: BetType.oddAndEven);
+                  },
                   context,
                   index: 5,
                   title: Lang.gameViewOddOrEvenBetting.tr,

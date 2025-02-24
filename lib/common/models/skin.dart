@@ -1,4 +1,6 @@
 import 'package:king_game/common/common.dart';
+import 'package:flutter/material.dart';
+
 
 class SkinListModel {
   List<SkinModel> list;
@@ -18,7 +20,7 @@ class SkinListModel {
   };
 
   Future<void> update() async {
-    return UserController.to.myDio?.post<SkinListModel>(MyApi.user.listAllSkin,
+    await UserController.to.myDio?.post<SkinListModel>(MyApi.user.listAllSkin,
       onSuccess: (code, msg, data) {
         list = data.list;
       },
@@ -50,7 +52,7 @@ class BagItemListModel {
   };
 
   Future<void> update() async {
-    return UserController.to.myDio?.get<SkinListModel>(MyApi.user.getBag,
+    await UserController.to.myDio?.get<SkinListModel>(MyApi.user.getBag,
       onSuccess: (code, msg, data) {
         list = data.list;
       },
@@ -61,6 +63,54 @@ class BagItemListModel {
       onModel: (m) => SkinListModel.fromJson(m),
     );
   }
+}
+
+class BoxResultModel {
+  bool prizeFlag;
+  SkinModel prize;
+
+  BoxResultModel({
+    required this.prizeFlag,
+    required this.prize,
+  });
+
+  Map<String, dynamic> toJson() => {
+    'prizeFlag': prizeFlag,
+    'prize': prize.toJson(),
+  };
+
+  Future<void> update(int type) async {
+
+    String data = 'S';
+
+    if (type == 1) {
+      data = 'S+';
+    } else if (type == 2) {
+      data = 'S++';
+    }
+
+    await UserController.to.myDio?.post<BoxResultModel>(MyApi.spinner.boxDraw,
+      onSuccess: (code, msg, data) {
+        prizeFlag = data.prizeFlag;
+        prize = data.prize;
+      },
+      onError: (e) {
+        MyAlert.showSnack(child: Text('${e.error}', style: TextStyle(color: Colors.white)));
+      },
+      data: {'type': data},
+      onModel: (m) => BoxResultModel.fromJson(m),
+    );
+  }
+
+  factory BoxResultModel.fromJson(Map<String, dynamic> json) => BoxResultModel(
+    prizeFlag: json['prizeFlag'] ?? true,
+    prize: SkinModel.fromJson(json['prize']),
+  );
+
+  factory BoxResultModel.empty() => BoxResultModel(
+    prizeFlag: true,
+    prize: SkinModel.empty(),
+  );
 }
 
 class SkinModel {

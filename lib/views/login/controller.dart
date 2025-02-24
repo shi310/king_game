@@ -89,7 +89,7 @@ class LoginController extends GetxController {
     setMyDioAddToken();
     await UserController.to.updateUserInfo(
       onSuccess: () {
-        Get.toNamed(MyRoutes.applicationView);
+        Get.toNamed(MyRoutes.application);
         hideMyLoading();
       },
       onError: (e) => loginError(e),
