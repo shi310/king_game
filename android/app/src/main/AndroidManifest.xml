@@ -1,4 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 相机权限 -->
+    <uses-permission android:name="android.hardware.camera"/>
+    <!-- 网络连接 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 设备信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 设备音频权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <application
         android:label="King Game"
         android:name="${applicationName}"
