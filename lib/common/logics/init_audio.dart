@@ -5,6 +5,7 @@ Future<void> initAudio() async {
   final audioString = await audioCache?.readAsString();
 
   UserController.to.isOpenAudio = audioString == 'true' || audioString == null;
+  await MyAudio.init();
 }
 
 Future<void> openAudio() async {

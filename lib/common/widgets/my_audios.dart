@@ -26,25 +26,35 @@ class MyAudio {
   static Future<void> pause() => _instance._pause();
   static Future<void> stop() => _instance._stop();
   static void dispose() => _instance._dispose();
+  static Future<void> init() async {
+    for (var audio in MyAudioPath.values) {
+      await _instance._preload(audio);
+    }
+  }
 
   final Map<MyAudioPath, AudioPlayer> _audioPlayers = {};
+
+  Future<void> _preload(MyAudioPath audioPath) async {
+    if (!_audioPlayers.containsKey(audioPath)) {
+      _audioPlayers[audioPath] = AudioPlayer();
+      await _audioPlayers[audioPath]!.setSource(AssetSource(audioPath.path));
+    }
+  }
 
   Future<void> _play(MyAudioPath audioPath) async {
     if (!UserController.to.isOpenAudio) {
       return;
     }
 
-    if (!_audioPlayers.containsKey(audioPath)) {
-      _audioPlayers[audioPath] = AudioPlayer();
+    var player = _audioPlayers[audioPath];
+    if (player == null) {
+      player = AudioPlayer();
+      await player.setSource(AssetSource(audioPath.path));
+      _audioPlayers[audioPath] = player;
     }
 
-    final player = _audioPlayers[audioPath]!;
-
-    if (player.state == PlayerState.playing) {
-      await player.stop();
-    }
-
-    await player.play(AssetSource(audioPath.path));
+    await player.seek(Duration.zero);
+    await player.resume();
   }
 
   Future<void> _pause() async {
